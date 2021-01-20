@@ -1,0 +1,13 @@
+.profile__edit-btn {
+    max-width: 24px;
+    max-height: 24px;
+    margin: auto 0 auto 18px;
+}
+
+@media (min-width: 320px) and (max-width: 768px) {
+    .profile__edit-btn  {
+        width: 18px;
+        height: 18px;
+        margin: auto 0 auto 10px; 
+    }
+}
