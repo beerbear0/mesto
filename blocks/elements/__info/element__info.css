@@ -1,0 +1,5 @@
+.element__info {
+    background-color:  #FFFFFF;
+    display: flex;
+    align-items: center;
+}
