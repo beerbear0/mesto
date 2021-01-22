@@ -2,8 +2,8 @@
     width: 430px;
     height: 330px;
     position: fixed;
-    left: 33%;
-    top: 25.5%;
     background-color: white;
-    z-index: 1;
+    margin: auto;
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
 }

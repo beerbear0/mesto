@@ -2,6 +2,9 @@
     width: 40px;
     height: 40px;
     position: fixed;
-    top: 146px;
-    right: 377px;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    margin: 10% 30% auto auto ;
 }
