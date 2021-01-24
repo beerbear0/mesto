@@ -31,5 +31,6 @@
 @import url(../blocks/popup/__submit/popup__submit.css);
 
 @import url(../blocks/footer/footer.css);
+@import url(../blocks/footer/__title/footer__title.css);
 
 @import url(../fonts/InterWeb/inter.css);

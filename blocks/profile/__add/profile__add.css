@@ -7,6 +7,10 @@
     border: 1px solid #FFFFFF;
     margin: auto 0 auto auto;
 }
+.profile__add:hover {
+    opacity: .6;
+    cursor: pointer;
+}
 
 @media (min-width: 320px) and (max-width: 768px) {
     .profile__add {
