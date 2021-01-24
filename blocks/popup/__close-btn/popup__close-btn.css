@@ -6,7 +6,7 @@
     right: 0;
     left: 0;
     bottom: 0;
-    margin: 10% 30% auto auto ;
+    margin: 10% 30% auto auto;
 }
 
 @media (min-width: 320px) and (max-width: 768px) {
