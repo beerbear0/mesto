@@ -1,13 +1,14 @@
- let popup = document.querySelector(".popup");
- let container = popup.querySelector(".popup__container");
- let close = popup.querySelector(".popup__close-btn");
- let open = document.querySelector(".profile__edit-btn");
+ const popup = document.querySelector(".popup");
+ const container = popup.querySelector(".popup__container");
+ const EditCloseBtn = popup.querySelector(".popup__close-btn");
+ const EditOpenbtn = document.querySelector(".profile__edit-btn");
 
  function switchPopupOpen () {
     popup.classList.toggle("popup__opened")
 }
 
 const submitBtn = document.querySelector(".popup__submit");
+
 
 const nameInput = popup.querySelector('.popup__name');
 const jobInput = popup.querySelector('.popup__infoname');
@@ -29,4 +30,4 @@ function formSubmitHandler (evt) {
 };
 
 container.addEventListener('submit', formSubmitHandler); 
-open.addEventListener('click', switchPopupOpen);
+EditOpenbtn.addEventListener('click', switchPopupOpen);
