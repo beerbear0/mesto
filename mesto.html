@@ -73,18 +73,18 @@
                 </div>    
             </div>
         </section>
-        <section class="pop-up">
-            <a href=""><img src="./images/CloseIcon.png" alt="КнопкаЗакрытия" class="pop-up__close-btn"></a>
-            <div class="pop-up__container">
-                <h2 class="pop-up__title">Редактировать профиль</h2>
-                <input type="text" class="pop-up__name">
-                <input type="text" class="pop-up__infoname">
-                <a href=""><img src="./images/SubmitButton.png" alt="КнопкаСохранить" class="pop-up__add-btn"></a>
-            </div>
+        <section class="popup">
+            <a href=""><img src="./images/CloseIcon.png" alt="КнопкаЗакрытия" class="popup__close-btn"></a>
+            <form class="popup__container">
+                <h2 class="popup__title">Редактировать профиль</h2>
+                <input type="text"  class="popup__name">
+                <input type="text" class="popup__infoname">
+                <button type="submit" class="popup__submit">Сохранить</button>
+            </form>
         </section>
     </div>
     <footer class="footer">
-        <p class="fotter__title">© 2020 Mesto Russia</p>
+        <p class="fotter__title">&copy; 2020 Mesto Russia</p>
     </footer>
     <script src="./pages/mesto.js"></script>
 </body>
