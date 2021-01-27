@@ -1,39 +1,38 @@
- const popup = document.querySelector(".popup");
- const container = popup.querySelector(".popup__container");
- const EditCloseBtn = popup.querySelector(".popup__close-btn");
- const submitBtn = popup.querySelector(".popup__submit");
- const nameInput = popup.querySelector('.popup__name');
- const jobInput = popup.querySelector('.popup__infoname');
+ let popup = document.querySelector(".popup");
+ let container = popup.querySelector(".popup__container");
+ let editCloseBtn = popup.querySelector(".popup__close-btn");
+ let nameInput = popup.querySelector('.popup__input_name');
+ let jobInput = popup.querySelector('.popup__input_infoname');
  
- const profile = document.querySelector(".profile");
- const EditOpenbtn = profile.querySelector(".profile__edit-btn");
- const profileName = profile.querySelector(".profile__name");
- const infoname = profile.querySelector(".profile__infoname");
+ let profile = document.querySelector(".profile");
+ let editOpenbtn = profile.querySelector(".profile__edit-btn");
+ let profileName = profile.querySelector(".profile__name");
+ let infoname = profile.querySelector(".profile__infoname");
  
-const LikeBtn = document.querySelector(".element__like-btn");
  
- function switchPopupOpen () {
-    popup.classList.toggle("popup__opened"); 
+//  function switchPopupOpen () {
+    // popup.classList.toggle("popup__opened"); 
+// };
+
+function popupOpen () {
+    popup.classList.add("popup__opened");
 };
 
-function BtnOn () {
-    LikeBtn.setAttribute('src', './images/Union.png');
-}; 
+function popupClose () {
+    popup.classList.remove("popup__opened");
+};
 
-LikeBtn.addEventListener('click', function () {
-    LikeBtn.setAttribute('src', './images/Union.png');
-});
 
 function formSubmitHandler (evt) {
     evt.preventDefault(); 
-    
+
     profileName.textContent = nameInput.value; 
-   
     infoname.textContent = jobInput.value;
-    switchPopupOpen();
+    
+    popupClose();
     
 };
 
 container.addEventListener('submit', formSubmitHandler);  
-EditOpenbtn.addEventListener('click', switchPopupOpen);
-EditCloseBtn.addEventListener('click', switchPopupOpen);
+editOpenbtn.addEventListener('click', popupOpen);
+editCloseBtn.addEventListener('click', popupClose);
