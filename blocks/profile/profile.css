@@ -4,7 +4,12 @@
     margin: 44px auto 50px auto;
     display: flex;
 }
-
+@media (min-width: 769px) and (max-width: 880px) {
+    .profile {
+        margin-right: 30px;
+        margin-left: 30px;
+    }
+}
 @media (min-width: 320px) and (max-width: 768px) {
     .profile {
         margin: 42px 19px 36px 19px;

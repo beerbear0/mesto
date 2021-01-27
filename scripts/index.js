@@ -15,11 +15,11 @@
 // };
 
 function popupOpen () {
-    popup.classList.add("popup__opened");
+    popup.classList.add("popup__container_opened");
 };
 
 function popupClose () {
-    popup.classList.remove("popup__opened");
+    popup.classList.remove("popup__container_opened");
 };
 
 
