@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
@@ -7,84 +8,99 @@
 </head>
 <body class="root">
     <header class="header">
-        <img src="./images/logo.png" alt="Логотип Место" class="header__logo">
+        <img src="./images/Vector.svg" alt="Логотип Место" class="header__logo">
     </header>
-    <div class="content">
+    <main class="content">
         
         <section class="profile">
             <img src="./images/Avatar.png" alt="Фото" class="profile__avatar">
             <div class="profile__info">
                 <div class="profile__name-btn">
                     <h1 class="profile__name">Жак-Ив Кусто</h1>
-                    <img class= "profile__edit-btn" src="./images/EditButton.png" alt="Кнопка редактирования">
+                    <button type="button" class= "profile__edit-btn"><img src="./images/EditButton.png" alt="КнопкаРедактирования" class="profile__edit-btn-image"></button>
                 </div>
                 <p class="profile__infoname">Исследователь океана</p>
             </div>
-            <div class="profile__add">
+            <button type="button" class="profile__add">
                 <img class="profile__add-btn" src="./images/Vector.png" alt="Кнопка добавления">
-            </div>
+            </button>
         </section>
         
         <section class="elements">
             
-            <div class="element">
+            <article class="element">
                 <img class="element__image" src="./images/kirill-pershin-1088404-unsplash.jpg" alt="Фото">
                 <div class="element__info">
                     <h2 class="element__title">Карачаевск</h2>
-                    <img src="./images/Group.png" alt="сердцеЛайк" class="element__like-btn">
+                    <button type="button" class="element__like-btn">
+                        <img src="./images/Group.png" alt="сердцеЛайк" class="element__like">
+                    </button>
                 </div>    
-            </div>
+            </article>
             
-            <div class="element">
+            <article class="element">
                 <img class="element__image" src="./images/kirill-pershin-1404681-unsplash.jpg" alt="Фото">
                 <div class="element__info">
                     <h2 class="element__title">Гора Эльбрус</h2>
-                    <img src="./images/Group.png" alt="сердцеЛайк" class="element__like-btn">
+                    <button type="button" class="element__like-btn">
+                        <img src="./images/Group.png" alt="сердцеЛайк" class="element__like">
+                    </button>
                 </div>    
-            </div>
+            </article>
             
-            <div class="element">
+            <article class="element">
                 <img class="element__image" src="./images/kirill-pershin-1556355-unsplash.png" alt="Фото">
                 <div class="element__info">
                     <h2 class="element__title">Домбай</h2>
-                    <img src="./images/Group.png" alt="сердцеЛайк" class="element__like-btn">
+                    <button type="button" class="element__like-btn">
+                        <img src="./images/Group.png" alt="сердцеЛайк" class="element__like">
+                    </button>
                 </div>    
-            </div>
+            </article>
             
-            <div class="element">
+            <article class="element">
                 <img class="element__image" src="./images/kirill-pershin-1404681-unsplash.jpg" alt="Фото">
                 <div class="element__info">
                     <h2 class="element__title">Гора Эльбрус</h2>
-                    <img src="./images/Group.png" alt="сердцеЛайк" class="element__like-btn">
-                </div>    
-            </div>
+                    <button type="button" class="element__like-btn">
+                        <img src="./images/Group.png" alt="сердцеЛайк" class="element__like">
+                    </button>
+                 </div>
+            </article>
             
-            <div class="element">
+            <article class="element">
                 <img class="element__image" src="./images/kirill-pershin-1556355-unsplash.png" alt="Фото">
                 <div class="element__info">
                     <h2 class="element__title">Домбай</h2>
-                    <img src="./images/Group.png" alt="сердцеЛайк" class="element__like-btn">
+                    <button type="button" class="element__like-btn">
+                        <img src="./images/Group.png" alt="сердцеЛайк" class="element__like">
+                    </button>
                 </div>    
-            </div>
+            </article>
             
-            <div class="element">
+            <article class="element">
                 <img class="element__image" src="./images/kirill-pershin-1088404-unsplash.jpg" alt="Фото">
                 <div class="element__info">
                     <h2 class="element__title">Карачаево-Черкессия</h2>
-                    <img src="./images/Group.png" alt="сердцеЛайк" class="element__like-btn">
+                    <button type="button" class="element__like-btn">
+                        <img src="./images/Group.png" alt="сердцеЛайк" class="element__like">
+                    </button>
                 </div>    
-            </div>
+            </article>
         </section>
+
         <section class="popup">
-            <img src="./images/CloseIcon.png" alt="КнопкаЗакрытия" class="popup__close-btn">
-            <form class="popup__container">
+            <button type="button" class="popup__close-btn">
+                <img src="./images/CloseIcon.png" alt="КнопкаЗакрытия" class="popup__close">
+            </button>
+                <form method="get" class="popup__container">
                 <h2 class="popup__title">Редактировать профиль</h2>
-                <input type="text"  class="popup__name">
-                <input type="text" class="popup__infoname">
+                <input type="text"  class="popup__input popup__input_name">
+                <input type="text" class="popup__input popup__input_infoname">
                 <button type="submit" class="popup__submit">Сохранить</button>
             </form>
         </section>
-    </div>
+    </main>
     <footer class="footer">
         <p class="footer__title">&copy; 2020 Mesto Russia</p>
     </footer>

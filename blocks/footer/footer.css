@@ -3,14 +3,14 @@
     margin: 66px auto 60px auto;
     max-width: 880px;
  }
- @media (min-width: 320px) and (max-width: 880px) {
+ @media (max-width: 880px) {
     .footer {
         max-width: 581px;
         margin-top:48px;
         margin-bottom: 36px;
     }
 }
-@media (min-width: 320px) and (max-width: 580px) {
+@media (max-width: 580px) {
     .footer {
         max-width: 282px;
     }

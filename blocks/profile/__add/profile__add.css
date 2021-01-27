@@ -4,8 +4,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid #FFFFFF;
+    border: 2px solid #FFFFFF;
     margin: auto 0 auto auto;
+    background-color: rgba(0, 0, 0, 1);
+    padding: 0;
+    border-radius: 2px;
 }
 .profile__add:hover {
     opacity: .6;

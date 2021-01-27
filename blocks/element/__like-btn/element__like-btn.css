@@ -2,9 +2,12 @@
     width: 22px;
     height: 19px;
     margin: 30px 20px 30px auto;
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
 }
 
 .element__like-btn:hover {
-    opacity: .6;
+    opacity: .5;
     cursor: pointer;
 }
+
