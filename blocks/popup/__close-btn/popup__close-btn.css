@@ -9,6 +9,7 @@
     margin: 10% 30% auto auto;
     background-color: rgba(0, 0, 0, 0);
     border: none;
+    padding: 0;
 }
 .popup__close-btn:hover {
     opacity: .6;
