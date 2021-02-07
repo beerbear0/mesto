@@ -66,8 +66,6 @@
  let containerAddCard = popupAddCard.querySelector(".popup__container-add-card");
  let image = document.querySelector(".element__image");
  let mesto = document.querySelector(".element__title");
- let imageInput = popupAddCard.querySelector(".popup__input_image_value");
- let mestoInput = popupAddCard.querySelector(".popup__input_mesto_value");
  let addOpenBtn = profile.querySelector(".profile__add");
  let addCloseBtn = popupAddCard.querySelector(".popup-add-cards__close");
 
@@ -88,49 +86,41 @@
 
      elContainer.append(...elem);
  }
+
  const cardTemplate = document.querySelector('.card-template');
+
  function addCard (card) {
-     const newCard = cardTemplate.content.cloneNode(true);
-     const cardElText = newCard.querySelector(".element__title");
-     const cardElImage = newCard.querySelector(".element__image");
+     let newCard = cardTemplate.content.cloneNode(true);
+     let cardElText = newCard.querySelector(".element__title");
+     let cardElImage = newCard.querySelector(".element__image");
+
+     newCard.querySelector('.element__like').addEventListener('click', function (evt) {
+         evt.target.classList.toggle('element__like_active')
+     });
 
      cardElText.textContent = card.name;
      cardElImage.src = card.link;
 
      return newCard;
  }
+
+ function addBtn () {
+
+     let imageInput = popupAddCard.querySelector(".popup__input_image_value");
+     let mestoInput = popupAddCard.querySelector(".popup__input_mesto_value");
+     const cardText = addCard({mestoInput});
+     const cardImage = addCard({imageInput});
+
+     elContainer.prepend(cardText, cardImage);
+
+     imageInput.value = '';
+     mestoInput.value = '';
+
+     popupAddCardClose();
+ }
+
 render();
+
+ saveSubmit.addEventListener('click', addBtn);
  addOpenBtn.addEventListener("click", popupAddCardOpen);
  addCloseBtn.addEventListener('click', popupAddCardClose);
-
-
-
-
- // function addCard(imageValue, mestoValue) { // функция добавления карты через попап
- //
- //     const cardTemplate = document.querySelector('#card-template').content; // находим темплате форму
- //     const cardElement = cardTemplate.querySelector('.element').cloneNode(true); //  клонируем карту
- //
- //     cardElement.querySelector('.element__image').style.src = imageValue;
- //     cardElement.querySelector('.element__title').textContent = mestoValue;
- //
- //     elementsContainer.append(cardElement);
- // }
- // function formSubmit (evt) {
- //     evt.preventDefault();
- //
- //     imageInput.value = image.style.src;
- //     mestoInput.value = mesto.textContent;
- //
- //     popupAddCardClose();
- //
- // };
- // saveSubmit.addEventListener('submit', function () { // функция кнопки сохранения попапа
- //     addCard(imageInput.value, linkInput.value);
- //     popupAddCardClose();
- //
- //     imageInput.value = '';
- //     mestoInput.value = '';
- // } )
-
- // containerAddCard.addEventListener('submit', formSubmit);
