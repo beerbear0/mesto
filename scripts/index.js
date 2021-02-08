@@ -64,8 +64,7 @@
 
  let popupAddCard = document.querySelector(".popup-add-cards");
  let containerAddCard = popupAddCard.querySelector(".popup__container-add-card");
- let image = document.querySelector(".element__image");
- let mesto = document.querySelector(".element__title");
+
  let addOpenBtn = profile.querySelector(".profile__add");
  let addCloseBtn = popupAddCard.querySelector(".popup-add-cards__close");
 
@@ -89,17 +88,18 @@
 
  const cardTemplate = document.querySelector('.card-template');
 
+ function likeBtn(evt) {
+     evt.target.classList.toggle('element__like_active')
+ }
  function addCard (card) {
      let newCard = cardTemplate.content.cloneNode(true);
      let cardElText = newCard.querySelector(".element__title");
      let cardElImage = newCard.querySelector(".element__image");
 
-     newCard.querySelector('.element__like').addEventListener('click', function (evt) {
-         evt.target.classList.toggle('element__like_active')
-     });
+     newCard.querySelector('.element__like').addEventListener('click', likeBtn);
 
      cardElText.textContent = card.name;
-     cardElImage.src = card.link;
+     cardElImage.src= card.link;
 
      return newCard;
  }
