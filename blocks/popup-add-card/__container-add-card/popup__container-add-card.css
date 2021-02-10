@@ -1,0 +1,10 @@
+.popup__container-add-card {
+    max-width: 430px;
+    background-color: white;
+    border-radius: 10px;
+}
+@media (min-width: 320px) and (max-width: 768px) {
+    .popup__container-add-card {
+        max-width: 282px;
+    }
+}

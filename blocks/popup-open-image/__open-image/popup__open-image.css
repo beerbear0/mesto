@@ -1,0 +1,6 @@
+.popup__open-image {
+    max-height: 540px;
+    max-width: 1fr;
+    grid-column: 1;
+    grid-row: 2;
+}

@@ -40,28 +40,43 @@
                 <button type="submit" class="popup__submit">Сохранить</button>
             </form>
         </section>
+
         <section class="popup-add-cards">
             <button type="button" class="popup__close-btn">
                 <img src="./images/CloseIcon.svg" alt="КнопкаЗакрытия" class="popup-add-cards__close">
             </button>
             <form class="popup__container-add-card">
                 <h2 class="popup__title">Новое место</h2>
-                <input type="text" name="mesto" class="popup__input popup__input_mesto_value">
-                <input type="link" name="image" class="popup__input popup__input_image_value">
+                <input placeholder="Название" type="text" name="mesto" class="popup__input popup__input_mesto_value">
+                <input placeholder="Ссылка на картинку" type="link" name="image" class="popup__input popup__input_image_value">
                 <button type="submit" class="popup__submit-add-card">Сохранить</button>
             </form>
+        </section>
+
+        <section class="popup-image">
+            <div class="popup-image__grid">
+                <button type="button" class="popup-image__close-btn">
+                    <img src="./images/CloseIcon.svg" alt="КнопкаЗакрытия" class="popup-image__close">
+                </button>
+                <img src="https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg"
+                 class="popup__open-image" alt="фото">
+                <p class="popup__image-name">rfrfrfr</p>
+            </div>
         </section>
     </main>
     <footer class="footer">
         <p class="footer__title">&copy; 2020 Mesto Russia</p>
     </footer>
+
     <template class="card-template">
         <article class="element">
             <div class="element__btn-image">
                 <button type="button" class="element__delete-btn">
                     <img src="./images/Trash.svg" class="element__delete">
                 </button>
-                 <img class="element__image" src="" alt="Фото">
+                <button type="button" class="element__open-image">
+                    <img class="element__image" src="" alt="Фото">
+                </button>
             </div>
             <div class="element__info">
                 <h2 class="element__title"></h2>

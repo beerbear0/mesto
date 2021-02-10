@@ -69,7 +69,8 @@
  let addCloseBtn = popupAddCard.querySelector(".popup-add-cards__close");
 
  let saveSubmit = popupAddCard.querySelector(".popup__submit-add-card");
-
+ const imageInput = popupAddCard.querySelector(".popup__input_image_value");
+ const mestoInput = popupAddCard.querySelector(".popup__input_mesto_value");
  let elContainer = document.querySelector(".elements");
 
  function popupAddCardOpen () {
@@ -80,6 +81,7 @@
  }
 
  function render () {
+
      const elem = initialCards
         .map(addCard)
 
@@ -92,6 +94,7 @@
      evt.target.classList.toggle('element__like_active')
  }
  function addCard (card) {
+
      let newCard = cardTemplate.content.cloneNode(true);
      let cardElText = newCard.querySelector(".element__title");
      let cardElImage = newCard.querySelector(".element__image");
@@ -101,17 +104,21 @@
      cardElText.textContent = card.name;
      cardElImage.src= card.link;
 
+     const removeBtn = newCard.querySelector(".element__delete-btn")
+     removeBtn.addEventListener('click', deleteCard)
+
      return newCard;
  }
 
- function addBtn () {
+ function addBtn (evt) {
+     evt.preventDefault();
+     const inputText = mestoInput.value;
+     const inputLink = imageInput.value;
+     const cardText = addCard({inputText});
+     const cardImage = addCard({inputLink});
 
-     let imageInput = popupAddCard.querySelector(".popup__input_image_value");
-     let mestoInput = popupAddCard.querySelector(".popup__input_mesto_value");
-     const cardText = addCard({mestoInput});
-     const cardImage = addCard({imageInput});
-
-     elContainer.prepend(cardText, cardImage);
+     elContainer.prepend(cardText);
+     elContainer.prepend(cardImage);
 
      imageInput.value = '';
      mestoInput.value = '';
@@ -119,8 +126,28 @@
      popupAddCardClose();
  }
 
+ function deleteCard (event) {
+     const targetElement = event.target;
+     const targetCard = targetElement.closest(".element");
+     targetCard.remove();
+ }
+
+ const btnOpenImage = cardTemplate.querySelector('.element__open-image');
+ const cardElImage = cardTemplate.querySelector(".element__image");
+ // const btnOpenImage = document.querySelector('.element__open-image');
+ // const cardTemplate = document.querySelector('.card-template');
+ // const cardElImage = cardTemplate.querySelector(".element__image");
+ function openImage () {
+
+     cardElImage.classList.add("element__image_opened")
+}
+function closeImage () {
+     cardElImage.classList.remove("element__image_opened");
+}
+
 render();
 
- saveSubmit.addEventListener('click', addBtn);
+ containerAddCard.addEventListener('submit', addBtn);
  addOpenBtn.addEventListener("click", popupAddCardOpen);
  addCloseBtn.addEventListener('click', popupAddCardClose);
+ btnOpenImage.addEventListener('click', openImage);
