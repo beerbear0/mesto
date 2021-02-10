@@ -104,3 +104,4 @@ function handleEditConfirm() {
 addButtonEl.addEventListener('click', handleAdd);
 
 render();
+
