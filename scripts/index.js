@@ -131,19 +131,27 @@
      const targetCard = targetElement.closest(".element");
      targetCard.remove();
  }
+ const popupImage = document.querySelector(".popup-image");
+ const imgCloseBtn = popupImage.querySelector("popup-image__close-btn");
+ const btnOpenImage = cardTemplate.querySelector(".element__open-image");
+ const nameImage = popupImage.querySelector(".popup__image-name");
 
- const btnOpenImage = cardTemplate.querySelector('.element__open-image');
- const cardElImage = cardTemplate.querySelector(".element__image");
- // const btnOpenImage = document.querySelector('.element__open-image');
- // const cardTemplate = document.querySelector('.card-template');
- // const cardElImage = cardTemplate.querySelector(".element__image");
- function openImage () {
+ function openPopupImg () {
 
-     cardElImage.classList.add("element__image_opened")
-}
-function closeImage () {
-     cardElImage.classList.remove("element__image_opened");
-}
+ }
+
+//  const btnOpenImage = cardTemplate.querySelector('.element__open-image');
+//  const cardElImage = cardTemplate.querySelector(".element__image");
+//  // const btnOpenImage = document.querySelector('.element__open-image');
+//  // const cardTemplate = document.querySelector('.card-template');
+//  // const cardElImage = cardTemplate.querySelector(".element__image");
+//  function openImage () {
+//
+//      cardElImage.classList.add("element__image_opened")
+// }
+// function closeImage () {
+//      cardElImage.classList.remove("element__image_opened");
+// }
 
 render();
 
