@@ -10,9 +10,9 @@
  let infoname = profile.querySelector(".profile__infoname");
  let addOpenBtn = profile.querySelector(".profile__add");
 
- let popupAddCard = document.querySelector(".popup-add-cards");
+ let popupAddCard = document.querySelector(".popup-add-card");
  let containerAddCard = popupAddCard.querySelector(".popup-add-card__container");
- let addCloseBtn = popupAddCard.querySelector(".popup-add-cards__close");
+ let addCloseBtn = popupAddCard.querySelector(".popup-add-card__close");
  const imageInput = popupAddCard.querySelector(".popup__input_image_value");
  const mestoInput = popupAddCard.querySelector(".popup__input_mesto_value");
 
@@ -75,11 +75,11 @@
 
 
  function popupAddCardOpen () {
-     popupAddCard.classList.add("popup-add-cards_opened");
+     popupAddCard.classList.add("popup-add-card_opened");
  }
 
  function popupAddCardClose () {
-     popupAddCard.classList.remove("popup-add-cards_opened");
+     popupAddCard.classList.remove("popup-add-card_opened");
  }
 
  function render () {

@@ -1,4 +1,4 @@
-.popup__open-image {
+.popup-image__open {
     max-height: 540px;
     max-width: 1fr;
     grid-column: 1;
@@ -6,23 +6,23 @@
 }
 
 @media (max-width: 1024px) {
-    .popup__open-image {
+    .popup-image__open {
         max-height: 440px;
     }
 }
 
 @media (max-width: 768px) {
-    .popup__open-image {
+    .popup-image__open {
         max-height: 340px;
     }
 }
 @media (max-width: 600px) {
-    .popup__open-image {
+    .popup-image__open {
         max-height: 240px;
     }
 }
 @media (max-width: 425px) {
-    .popup__open-image {
+    .popup-image__open {
         max-height: 299px;
         max-width: 240px;
     }
