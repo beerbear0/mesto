@@ -139,8 +139,8 @@
 
      const cardElImg = editing.querySelector(".element__image");
      const cardElTxt = editing.querySelector(".element__title");
-     const popupImg = popupImage.querySelector(".popup__open-image");
-     const popupTxt = popupImage.querySelector(".popup__image-name");
+     const popupImg = popupImage.querySelector(".popup-image__open");
+     const popupTxt = popupImage.querySelector(".popup-image__name");
 
      popupImg.src = cardElImg.src;
      popupTxt.textContent = cardElTxt.textContent;
