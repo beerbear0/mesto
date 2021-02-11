@@ -4,8 +4,10 @@
     background-color: rgba(0, 0, 0, 0);
     border: none;
     padding: 0;
-
+    grid-column: 2;
+    grid-row: 1;
 }
+
 
 .popup-image__close-btn:hover {
     opacity: .6;
@@ -15,15 +17,7 @@
     .popup-image__close-btn {
         width: 26px;
         height: 26px;
-        margin: 72px 16px auto auto;
+        grid-column: 1;
+        margin: auto 0 14px auto;
     }
-}
-.popup-image__close-btn {
-    width: 40px;
-    height: 40px;
-    background-color: rgba(0, 0, 0, 0);
-    border: none;
-    padding: 0;
-    grid-column: 2;
-    grid-row: 1;
 }
