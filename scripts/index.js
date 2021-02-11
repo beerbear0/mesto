@@ -11,7 +11,7 @@
  let addOpenBtn = profile.querySelector(".profile__add");
 
  let popupAddCard = document.querySelector(".popup-add-cards");
- let containerAddCard = popupAddCard.querySelector(".popup__container-add-card");
+ let containerAddCard = popupAddCard.querySelector(".popup-add-card__container");
  let addCloseBtn = popupAddCard.querySelector(".popup-add-cards__close");
  const imageInput = popupAddCard.querySelector(".popup__input_image_value");
  const mestoInput = popupAddCard.querySelector(".popup__input_mesto_value");

@@ -2,8 +2,10 @@
     max-width: 430px;
     background-color: white;
     border-radius: 10px;
+    grid-column: 1;
+    grid-row: 2;
+    margin: auto;
 }
-
 @media (min-width: 320px) and (max-width: 768px) {
     .popup__container {
         max-width: 282px;

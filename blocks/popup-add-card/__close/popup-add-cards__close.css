@@ -1,12 +1,6 @@
 .popup-add-cards__close  {
     width: 40px;
     height: 40px;
-    position: fixed;
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    margin: 10% 30% auto auto;
     background-color: rgba(0, 0, 0, 0);
     border: none;
     padding: 0;
@@ -19,6 +13,5 @@
     .popup-add-cards__close {
         width: 26px;
         height: 26px;
-        margin: 72px 16px auto auto;
     }
 }

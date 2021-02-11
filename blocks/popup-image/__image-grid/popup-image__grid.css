@@ -1,12 +1,16 @@
 .popup-image__grid{
     display: grid;
     grid-auto-columns:1fr .1fr;
-    grid-template-rows: 1fr 1fr 1fr ;
     align-items: center;
     align-content: center;
-    column-gap: -7;
-    row-gap: 10;
     max-width: 75vw;
     max-height: 75vh;
 }
 
+.popup__grid {
+    display: grid;
+    grid-auto-columns:1fr .1fr;
+    align-items: center;
+    align-content: center;
+
+}

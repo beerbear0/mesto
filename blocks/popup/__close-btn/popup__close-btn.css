@@ -1,15 +1,11 @@
 .popup__close-btn {
     width: 40px;
     height: 40px;
-    position: fixed;
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    margin: 10% 30% auto auto;
     background-color: rgba(0, 0, 0, 0);
     border: none;
     padding: 0;
+    grid-column: 2;
+    grid-row: 1;
 }
 .popup__close-btn:hover {
     opacity: .6;
@@ -19,6 +15,8 @@
     .popup__close-btn {
         width: 26px;
         height: 26px;
-        margin: 72px 16px auto auto;
+        margin: auto -7px 13px auto;
+        grid-column: 1;
+        grid-row: 1;
     }
 }
