@@ -25,13 +25,13 @@ function render() {
 
 function getItemHTML(item) {
     return `<li class="todo__item card">
- <h2 class="card__title">${item.title}</h2>
- <div class="card__actions">
- <button type="button" class="button button_edit"></button>
- <button type="button" class="button button_duplicate"></button>
- <button type="button" class="button button_remove"></button>
- </div>
- </li>`
+                    <h2 class="card__title">${item.title}</h2>
+                    <div class="card__actions">
+                        <button type="button" class="button button_edit"></button>
+                        <button type="button" class="button button_duplicate"></button>
+                        <button type="button" class="button button_remove"></button>
+                    </div>
+                </li>`
 }
 
 
@@ -56,7 +56,7 @@ function handleAdd() {
     const inputText = inputEl.value;
     const listItem = getItem({title: inputText});
     listContainerEl.prepend(listItem);
-    inputEl.value = "";
+    inputEl.value = ''
 }
 
 function handleDelete(event) {
@@ -93,7 +93,7 @@ function handleEditConfirm() {
     addButtonEl.classList.remove('button_edit');
     addButtonEl.classList.add('button_add');
 
-    inputEl.value = "";
+    inputEl.value = ''
 
     addButtonEl.removeEventListener('click', handleEditConfirm);
     addButtonEl.addEventListener('click', handleAdd);
@@ -104,4 +104,3 @@ function handleEditConfirm() {
 addButtonEl.addEventListener('click', handleAdd);
 
 render();
-
