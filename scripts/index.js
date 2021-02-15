@@ -1,26 +1,23 @@
- let popup = document.querySelector(".popup");
- let container = popup.querySelector(".popup__container");
- let editCloseBtn = popup.querySelector(".popup__close-btn");
- let nameInput = popup.querySelector('.popup__input_name_value');
- let jobInput = popup.querySelector('.popup__input_infoname_value');
+ const popup = document.querySelector(".popup");
+ const container = popup.querySelector(".popup__container");
+ const editCloseBtn = popup.querySelector(".popup__close-btn");
+ const nameInput = popup.querySelector('.popup__input_name_value');
+ const jobInput = popup.querySelector('.popup__input_infoname_value');
 
- let profile = document.querySelector(".profile");
- let editOpenbtn = profile.querySelector(".profile__edit-btn");
- let profileName = profile.querySelector(".profile__name");
- let infoname = profile.querySelector(".profile__infoname");
- let addOpenBtn = profile.querySelector(".profile__add");
+ const profile = document.querySelector(".profile");
+ const editOpenbtn = profile.querySelector(".profile__edit-btn");
+ const profileName = profile.querySelector(".profile__name");
+ const infoname = profile.querySelector(".profile__infoname");
+ const addOpenBtn = profile.querySelector(".profile__add");
 
- let popupAddCard = document.querySelector(".popup-add-card");
- let containerAddCard = popupAddCard.querySelector(".popup-add-card__container");
- let addCloseBtn = popupAddCard.querySelector(".popup-add-card__close");
+ const popupAddCard = document.querySelector(".popup-add-card");
+ const containerAddCard = popupAddCard.querySelector(".popup-add-card__container");
  const imageInput = popupAddCard.querySelector(".popup-add-card__input_image_value");
  const mestoInput = popupAddCard.querySelector(".popup-add-card__input_mesto_value");
-
- let elContainer = document.querySelector(".elements");
-
+ const elContainer = document.querySelector(".elements");
  const cardTemplate = document.querySelector('.card-template');
- let popupImage = document.querySelector(".popup-image");
- let imgCloseBtn = popupImage.querySelector(".popup-image__close-btn");
+ const popupImage = document.querySelector(".popup-image");
+ const imgCloseBtn = popupImage.querySelector(".popup-image__close-btn");
 
  function popupOpen () {
     popup.classList.add("popup_opened");
@@ -96,9 +93,9 @@
  }
  function addCard (card) {
 
-     let newCard = cardTemplate.content.cloneNode(true);
-     let cardElText = newCard.querySelector(".element__title");
-     let cardElImage = newCard.querySelector(".element__image");
+     const newCard = cardTemplate.content.cloneNode(true);
+     const cardElText = newCard.querySelector(".element__title");
+     const cardElImage = newCard.querySelector(".element__image");
 
      newCard.querySelector('.element__like').addEventListener('click', likeBtn);
 
@@ -116,8 +113,8 @@
 
  function addBtn (evt) {
      evt.preventDefault();
-     let inputText = mestoInput.value;
-     let inputLink = imageInput.value;
+     const inputText = mestoInput.value;
+     const inputLink = imageInput.value;
      const cardAdd = addCard({name: inputText, link: inputLink})
 
      elContainer.prepend(cardAdd);
