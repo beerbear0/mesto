@@ -1,7 +1,5 @@
 .popup-add-card_opened {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     visibility: visible;
     opacity: 1;
+    margin: 0 auto;
 }

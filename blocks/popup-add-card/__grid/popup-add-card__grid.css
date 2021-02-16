@@ -1,7 +1,0 @@
-.popup-add-card__grid {
-    display: grid;
-    grid-auto-columns:1fr .1fr;
-    align-items: center;
-    align-content: center;
-
-}
