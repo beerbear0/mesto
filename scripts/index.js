@@ -26,7 +26,7 @@ const initialCards = [
 ];
 
 
-const popup = document.querySelector(".popup");
+ const popup = document.querySelector(".popup");
  const container = popup.querySelector(".popup__container");
  const editCloseBtn = popup.querySelector(".popup__close-btn");
  const nameInput = popup.querySelector('.popup__input_name_value');
