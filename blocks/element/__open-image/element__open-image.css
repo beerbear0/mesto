@@ -3,3 +3,6 @@
     border: none;
     padding: 0;
 }
+.element__open-image:hover {
+    cursor: pointer;
+}

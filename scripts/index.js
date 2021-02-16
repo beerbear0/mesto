@@ -67,7 +67,7 @@ const popup = document.querySelector(".popup");
  function popupClose () {
      popupCls(popup)
  }
- 
+
 function popupAddCardOpen () {
     opnPopup(popupAddCard)
 }
@@ -85,8 +85,6 @@ function popupAddCardClose () {
      popupClose(popupAddCard);
 
  }
-
-
 
  function render () {
 
