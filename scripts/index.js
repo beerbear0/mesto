@@ -41,8 +41,8 @@ const popup = document.querySelector(".popup");
  const popupAddCard = document.querySelector(".popup-add-card");
  const containerAddCard = popupAddCard.querySelector(".popup-add-card__container");
  const addCloseBtn = popupAddCard.querySelector(".popup-add-card__close-btn");
- const imageInput = popupAddCard.querySelector(".popup-add-card__input_image_value");
- const mestoInput = popupAddCard.querySelector(".popup-add-card__input_mesto_value");
+ const imageInput = popupAddCard.querySelector(".popup__input_image_value");
+ const mestoInput = popupAddCard.querySelector(".popup__input_mesto_value");
 
  const elContainer = document.querySelector(".elements");
 
