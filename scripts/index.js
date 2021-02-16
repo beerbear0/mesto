@@ -50,12 +50,12 @@ const popup = document.querySelector(".popup");
  const popupImage = document.querySelector(".popup-image");
  const imgCloseBtn = popupImage.querySelector(".popup-image__close-btn");
 
- function opnPopup (item) {
+ function openPopup (item) {
     item.classList.add("popup-add-card_opened");
 }
  function popupOpen () {
-    
-    opnPopup(popup)
+
+     openPopup(popup)
 
     nameInput.value = profileName.textContent;
     jobInput.value = infoname.textContent;
@@ -69,7 +69,7 @@ const popup = document.querySelector(".popup");
  }
 
 function popupAddCardOpen () {
-    opnPopup(popupAddCard)
+    openPopup(popupAddCard)
 }
 
 function popupAddCardClose () {
