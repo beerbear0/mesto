@@ -43,7 +43,6 @@
 
 @import url(../blocks/popup-image/popup-image.css);
 @import url(../blocks/popup-image/__image-grid/popup-image__grid.css);
-@import url(../blocks/popup-image/_active/popup-image_active.css);
 @import url(../blocks/popup-image/__open-image/popup-image__open.css);
 @import url(../blocks/popup-image/__name/popup-image__name.css);
 
