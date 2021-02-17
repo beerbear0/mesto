@@ -26,11 +26,11 @@ const initialCards = [
 ];
 
 
-const popup = document.querySelector(".popup");
- const container = popup.querySelector(".popup__container");
- const editCloseBtn = popup.querySelector(".popup__close-btn");
- const nameInput = popup.querySelector('.popup__input_name_value');
- const jobInput = popup.querySelector('.popup__input_infoname_value');
+ const popupEdit = document.querySelector(".popup");
+ const container = popupEdit.querySelector(".popup__container");
+ const editCloseBtn = popupEdit.querySelector(".popup__close-btn");
+ const nameInput = popupEdit.querySelector('.popup__input_name_value');
+ const jobInput = popupEdit.querySelector('.popup__input_infoname_value');
 
  const profile = document.querySelector(".profile");
  const editOpenbtn = profile.querySelector(".profile__edit-btn");
@@ -50,30 +50,47 @@ const popup = document.querySelector(".popup");
  const popupImage = document.querySelector(".popup-image");
  const imgCloseBtn = popupImage.querySelector(".popup-image__close-btn");
 
+<<<<<<< HEAD
  function openPopup (item) {
     item.classList.add("popup-add-card_opened");
 }
  function popupOpen () {
 
      openPopup(popup)
+=======
+ function openPopup (popup) {
+    popup.classList.add("popup__opened");
+}
+
+ function openEditPopup () {
+
+     openPopup(popupEdit)
+>>>>>>> develop
 
     nameInput.value = profileName.textContent;
     jobInput.value = infoname.textContent;
  }
 
- function popupCls (item) {
-     item.classList.remove("popup-add-card_opened");
- }
- function popupClose () {
-     popupCls(popup)
+ function popupClose (popup) {
+     popup.classList.remove("popup__opened");
  }
 
+ function closePopupEdit () {
+     popupClose(popupEdit)
+ }
+
+<<<<<<< HEAD
 function popupAddCardOpen () {
     openPopup(popupAddCard)
 }
+=======
+ function popupAddCardOpen () {
+    openPopup(popupAddCard)
+ }
+>>>>>>> develop
 
-function popupAddCardClose () {
-    popupCls(popupAddCard)
+ function popupCloseAddCard () {
+     popupClose(popupAddCard)
 }
 
  function formSubmitHandler (evt) {
@@ -82,8 +99,7 @@ function popupAddCardClose () {
      profileName.textContent = nameInput.value;
      infoname.textContent = jobInput.value;
 
-     popupClose(popupAddCard);
-
+     popupClose(popupEdit);
  }
 
  function render () {
@@ -104,10 +120,11 @@ function popupAddCardClose () {
      const cardElText = newCard.querySelector(".element__title");
      const cardElImage = newCard.querySelector(".element__image");
 
-     newCard.querySelector('.element__like').addEventListener('click', likeBtn);
+     newCard.querySelector('.element__like-btn').addEventListener('click', likeBtn);
 
      cardElText.textContent = card.name;
      cardElImage.src= card.link;
+     cardElImage.alt = 'Фото';
 
      const removeBtn = newCard.querySelector(".element__delete-btn")
      removeBtn.addEventListener('click', deleteCard)
@@ -129,7 +146,7 @@ function popupAddCardClose () {
      imageInput.value = '';
      mestoInput.value = '';
 
-     popupAddCardClose();
+     popupClose(popupAddCard);
  }
 
  function deleteCard (event) {
@@ -137,9 +154,10 @@ function popupAddCardClose () {
      const targetCard = targetElement.closest(".element");
      targetCard.remove();
  }
+
  function popupImgOpen (event) {
      const targetElement = event.target;
-     editing = targetElement.closest(".element");
+     const editing = targetElement.closest(".element");
 
      const cardElImg = editing.querySelector(".element__image");
      const cardElTxt = editing.querySelector(".element__title");
@@ -147,20 +165,23 @@ function popupAddCardClose () {
      const popupTxt = popupImage.querySelector(".popup-image__name");
 
      popupImg.src = cardElImg.src;
+     popupImg.alt = "Фото";
      popupTxt.textContent = cardElTxt.textContent;
 
-         popupImage.classList.add("popup-image_active");
+     openPopup(popupImage);
+
  }
     function popupImgCls () {
-        popupImage.classList.remove("popup-image_active");
+        popupClose(popupImage);
     }
+
  render();
- 
+
  container.addEventListener('submit', formSubmitHandler);
- editOpenbtn.addEventListener('click', popupOpen);
- editCloseBtn.addEventListener('click', popupClose);
+ editOpenbtn.addEventListener('click', openEditPopup);
+ editCloseBtn.addEventListener('click', closePopupEdit);
  containerAddCard.addEventListener('submit', addBtn);
  addOpenBtn.addEventListener("click", popupAddCardOpen);
- addCloseBtn.addEventListener('click', popupAddCardClose);
+ addCloseBtn.addEventListener('click', popupCloseAddCard);
  imgCloseBtn.addEventListener("click", popupImgCls);
 

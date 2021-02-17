@@ -1,8 +1,4 @@
 .popup-image__grid{
-    display: grid;
-    grid-auto-columns:1fr .1fr;
-    align-items: center;
-    align-content: center;
     max-width: 75vw;
     max-height: 75vh;
 }

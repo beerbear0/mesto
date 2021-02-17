@@ -4,6 +4,7 @@
     margin: 30px 20px 30px auto;
     background-color: rgba(0, 0, 0, 0);
     border: none;
+    background-image: url("../../../images/Group.svg");
 }
 
 .element__like-btn:hover {
