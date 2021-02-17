@@ -50,6 +50,7 @@ const initialCards = [
  const popupImage = document.querySelector(".popup-image");
  const imgCloseBtn = popupImage.querySelector(".popup-image__close-btn");
 
+ 
  function openPopup (popup) {
     popup.classList.add("popup__opened");
 }
