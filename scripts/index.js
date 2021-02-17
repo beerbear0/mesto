@@ -164,7 +164,7 @@ const initialCards = [
 
  container.addEventListener('submit', formSubmitHandler);
  editOpenbtn.addEventListener('click', openEditPopup);
- editCloseBtn.addEventListener('click', popupClose(popupEdit));
+ editCloseBtn.addEventListener('click', closePopupEdit);
  containerAddCard.addEventListener('submit', addBtn);
  addOpenBtn.addEventListener("click", popupAddCardOpen);
  addCloseBtn.addEventListener('click', popupCloseAddCard);
