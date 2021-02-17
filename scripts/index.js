@@ -56,17 +56,17 @@ const initialCards = [
 
  function openEditPopup () {
 
-     openPopup(popup)
+     openPopup(popupEdit)
 
     nameInput.value = profileName.textContent;
     jobInput.value = infoname.textContent;
  }
 
- function popupClose (item) {
-     item.classList.remove("popup__opened");
+ function popupClose (popup) {
+     popup.classList.remove("popup__opened");
  }
 
- function popupClose () {
+ function closePopupEdit () {
      popupClose(popupEdit)
  }
 
@@ -74,9 +74,9 @@ const initialCards = [
     openPopup(popupAddCard)
  }
 
- function popupAddCardClose () {
+ function popupCloseAddCard () {
      popupClose(popupAddCard)
- }
+}
 
  function formSubmitHandler (evt) {
      evt.preventDefault();
@@ -84,8 +84,7 @@ const initialCards = [
      profileName.textContent = nameInput.value;
      infoname.textContent = jobInput.value;
 
-     popupClose(popupAddCard);
-
+     popupClose(popupEdit);
  }
 
  function render () {
@@ -110,6 +109,7 @@ const initialCards = [
 
      cardElText.textContent = card.name;
      cardElImage.src= card.link;
+     cardElImage.alt = 'Фото';
 
      const removeBtn = newCard.querySelector(".element__delete-btn")
      removeBtn.addEventListener('click', deleteCard)
@@ -131,7 +131,7 @@ const initialCards = [
      imageInput.value = '';
      mestoInput.value = '';
 
-     popupAddCardClose();
+     popupClose(popupAddCard);
  }
 
  function deleteCard (event) {
@@ -139,9 +139,10 @@ const initialCards = [
      const targetCard = targetElement.closest(".element");
      targetCard.remove();
  }
+
  function popupImgOpen (event) {
      const targetElement = event.target;
-     editing = targetElement.closest(".element");
+     const editing = targetElement.closest(".element");
 
      const cardElImg = editing.querySelector(".element__image");
      const cardElTxt = editing.querySelector(".element__title");
@@ -149,20 +150,23 @@ const initialCards = [
      const popupTxt = popupImage.querySelector(".popup-image__name");
 
      popupImg.src = cardElImg.src;
+     popupImg.alt = "Фото";
      popupTxt.textContent = cardElTxt.textContent;
 
-         popupImage.classList.add("popup-image_active");
+     openPopup(popupImage);
+
  }
     function popupImgCls () {
-        popupImage.classList.remove("popup-image_active");
+        popupClose(popupImage);
     }
+
  render();
- 
+
  container.addEventListener('submit', formSubmitHandler);
  editOpenbtn.addEventListener('click', openEditPopup);
- editCloseBtn.addEventListener('click', popupClose);
+ editCloseBtn.addEventListener('click', popupClose(popupEdit));
  containerAddCard.addEventListener('submit', addBtn);
  addOpenBtn.addEventListener("click", popupAddCardOpen);
- addCloseBtn.addEventListener('click', popupAddCardClose);
+ addCloseBtn.addEventListener('click', popupCloseAddCard);
  imgCloseBtn.addEventListener("click", popupImgCls);
 
