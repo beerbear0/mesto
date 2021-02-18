@@ -31,45 +31,36 @@
         <section class="elements">
         </section>
 
+        <section class="popups">
 
-        <section class="popup">
-            <div class="popup__grid">
-                <button type="button" class="popup__close-btn">
-                    <img src="./images/CloseIcon.svg" alt="КнопкаЗакрытия" class="popup__close">
-                </button>
-                <form name="popup-container" class="popup__container">
+        <div class="popup popup_edit-profile">
+                <form name="popup-container" class="popup__container"  method="GET" action="#">
+                    <button type="reset" class="popup__close-btn" aria-label="закрыть"></button>
                     <h2 class="popup__title">Редактировать профиль</h2>
-                    <input placeholder="Имя" type="text" name="Name" class=  "popup__input popup__input_name_value">
-                    <input  placeholder="Работа" type="text" name="Job" class="popup__input popup__input_infoname_value">
+                    <input placeholder="Имя" type="text" name="Name" class="popup__input popup__input_name-value" required>
+                    <input  placeholder="Работа" type="text" name="Job" class="popup__input popup__input_infoname-value" required>
                     <button type="submit" class="popup__submit">Сохранить</button>
                 </form>
-            </div>
-        </section>
+        </div>
 
-        <section class="popup popup-add-card">
-            <div class="popup__grid">
-                <button type="button" class="popup__close-btn popup-add-card__close-btn">
-                    <img src="./images/CloseIcon.svg" alt="КнопкаЗакрытия" class="popup__close">
-                </button>
-                <form class="popup__container popup-add-card__container">
+        <div class="popup popup_add-card">
+                <form class="popup__container popup__container_add-card">
+                    <button type="reset" class="popup__close-btn" aria-label="закрыть"></button>
                     <h2 class="popup__title">Новое место</h2>
-                    <input placeholder="Название" type="text" name="mesto" class="popup__input popup__input_mesto_value">
-                    <input placeholder="Ссылка на картинку" type="link" name="image" class="popup__input popup__input_image_value">
+                    <input placeholder="Название" type="text" name="mesto" class="popup__input popup__input_mesto-value">
+                    <input placeholder="Ссылка на картинку" type="url" name="image" class="popup__input popup__input_image-value">
                     <button type="submit" class="popup__submit">Сохранить</button>
                 </form>
             </div>
-        </section>
 
-        <section class="popup popup-image">
-            <div class="popup__grid popup-image__grid">
-                <button type="button" class="popup__close-btn popup-image__close-btn">
-                    <img src="./images/CloseIcon.svg" alt="КнопкаЗакрытия" class="popup__close">
-                </button>
-                <img src="#" class="popup-image__open" alt="фото">
-                <p class="popup-image__name"></p>
+        <div class="popup popup_type-image">
+            <div class="popup__image-container">
+                <button type="reset" class="popup__close-btn" aria-label="закрыть"></button>
+                <img src="#" class="popup__image" alt="">
+                <p class="popup__image-name"></p>
             </div>
+        </div>
         </section>
-
     </main>
     <footer class="footer">
         <p class="footer__title">&copy; 2020 Mesto Russia</p>
