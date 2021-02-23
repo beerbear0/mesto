@@ -153,3 +153,34 @@ editOpenbtn.addEventListener('click', openEditPopup);
 containerAddCard.addEventListener('submit', addBtn);
 addOpenBtn.addEventListener("click", () => openPopup(popupAddCard));
 
+// enableValidation({
+//     formSelector: '.popup__form',
+//     inputSelector: '.popup__input',
+//     submitButtonSelector: '.popup__button',
+//     inactiveButtonClass: 'popup__button_disabled',
+//     inputErrorClass: 'popup__input_type_error',
+//     errorClass: 'popup__error_visible'
+// });
+
+
+const showError = (input) => { // Добавляем класс ошибки инпуту
+    input.classList.add('popup__input_disabled')
+};
+
+const hideError = (input) => {  // Удаляем класс ошибки инпуту
+    input.classList.remove('popup__input_disabled')
+};
+
+const checkInputValidity = (input) => { // Проверяем инпут на валидность
+    if (!input.validity.valid) {
+        showError(input)
+
+    } else {
+        hideError(input)
+    }
+};
+
+nameInput.addEventListener('input', () => checkInputValidity(nameInput));
+jobInput.addEventListener('input', () => checkInputValidity(jobInput));
+mestoInput.addEventListener('input', () => checkInputValidity(mestoInput));
+imageInput.addEventListener('input', () => checkInputValidity(imageInput));
