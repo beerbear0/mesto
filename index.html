@@ -37,9 +37,15 @@
                 <form name="popup-container" class="popup__container"  method="GET" action="#">
                     <button type="reset" class="popup__close-btn" aria-label="закрыть"></button>
                     <h2 class="popup__title">Редактировать профиль</h2>
-                    <input placeholder="Имя" type="text" name="Name" class="popup__input popup__input_name-value" required>
-                    <input  placeholder="Работа" type="text" name="Job" class="popup__input popup__input_infoname-value" required>
-                    <button type="submit" class="popup__submit popup__submit_disabled">Сохранить</button>
+                    <div class="popup__input-span">
+                        <input placeholder="Имя" type="text" name="Name" class="popup__input  popup__input_name-value" required>
+                        <span class="popup__input-error" ></span>
+                    </div>
+                    <div class="popup__input-span">
+                         <input  placeholder="Работа" type="text" name="Job" class="popup__input popup__input_infoname-value" required>
+                        <span class="popup__input-error" ></span>
+                     </div>
+                    <button type="submit" class="popup__submit">Сохранить</button>
                 </form>
         </div>
 
@@ -47,8 +53,14 @@
                 <form class="popup__container popup__container_add-card">
                     <button type="reset" class="popup__close-btn" aria-label="закрыть"></button>
                     <h2 class="popup__title">Новое место</h2>
-                    <input placeholder="Название" type="text" name="mesto" class="popup__input popup__input_mesto-value">
-                    <input placeholder="Ссылка на картинку" type="url" name="image" class="popup__input popup__input_image-value">
+                    <div class="popup__input-span">
+                        <input placeholder="Название" type="text" name="mesto" class="popup__input popup__input_mesto-value">
+                        <span class="popup__input-error" ></span>
+                    </div>
+                    <div class="popup__input-span">
+                        <input placeholder="Ссылка на картинку" type="url" name="image" class="popup__input popup__input_image-value">
+                        <span class="popup__input-error popup__input-error-email">1114141</span>
+                    </div>
                     <button type="submit" class="popup__submit">Сохранить</button>
                 </form>
             </div>
