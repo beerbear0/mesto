@@ -162,25 +162,61 @@ addOpenBtn.addEventListener("click", () => openPopup(popupAddCard));
 //     errorClass: 'popup__error_visible'
 // });
 
+const popupInput = popupParents.querySelector('.popup__input')
 
-const showError = (input) => { // Добавляем класс ошибки инпуту
-    input.classList.add('popup__input_disabled')
+const showInputError = (popupParents, inputEl, errorMessage) => { // Добавляем класс ошибки инпуту
+    const errorEl = popupParents.querySelector(`.${inputEl.id}-error`)
+    inputEl.classList.add('popup__input_disabled')
+    errorEl.textContent = errorMessage;
+    errorEl.classList.add('popup__error_visible')
 };
 
-const hideError = (input) => {  // Удаляем класс ошибки инпуту
-    input.classList.remove('popup__input_disabled')
+const hideInputError = (popupParents, inputEl) => {  // Удаляем класс ошибки инпуту
+    const errorEl = popupParents.querySelector(`.${inputEl.id}-error`);
+    inputEl.classList.remove('popup__input_disabled')
+    errorEl.classList.remove('form__input-error_active');
+    errorEl.textContent = '';
+
 };
 
-const checkInputValidity = (input) => { // Проверяем инпут на валидность
-    if (!input.validity.valid) {
-        showError(input)
+const checkInputValidity = (popupParents, inputEl) => { // Проверяем инпут на валидность
+    if (!inputEl.validity.valid) {
+        showInputError(popupParents, inputEl, inputEl.validationMessage)
 
     } else {
-        hideError(input)
+        hideInputError(popupParents, inputEl)
     }
 };
+container.addEventListener('submit', function (evt) {
+    evt.preventDefault();
+});
 
-nameInput.addEventListener('input', () => checkInputValidity(nameInput));
-jobInput.addEventListener('input', () => checkInputValidity(jobInput));
-mestoInput.addEventListener('input', () => checkInputValidity(mestoInput));
-imageInput.addEventListener('input', () => checkInputValidity(imageInput));
+popupInput.addEventListener('input', function () {
+    checkInputValidity(container, inputEl);
+});
+
+function setEventListeners (popupParents) {
+    const inputList = Array.from(popupParents.querySelectorAll('.form__input'));
+    inputList.forEach((inputEl) => {
+        inputEl.addEventListener('input', function () {
+            checkInputValidity(popupParents, inputEl);
+        });
+    });
+}
+function enableValidation () {
+    const formList = Array.from(document.querySelectorAll('.popup__container'));
+    formList.forEach((formElement) => {
+        formElement.addEventListener('submit', (evt) => {
+            evt.preventDefault();
+        });
+
+        setEventListeners(formElement);
+    });
+}
+enableValidation()
+
+
+// nameInput.addEventListener('input', () => checkInputValidity(nameInput));
+// jobInput.addEventListener('input', () => checkInputValidity(jobInput));
+// mestoInput.addEventListener('input', () => checkInputValidity(mestoInput));
+// imageInput.addEventListener('input', () => checkInputValidity(imageInput));

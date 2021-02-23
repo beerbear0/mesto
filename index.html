@@ -33,16 +33,16 @@
 
         <section class="popups">
 
-        <div class="popup popup_edit-profile">
-                <form name="popup-container" class="popup__container"  method="GET" action="#">
+        <div class="popup popup_edit-profile" >
+                <form name="popup-container" class="popup__container"  method="GET" action="#" novalidate>
                     <button type="reset" class="popup__close-btn" aria-label="закрыть"></button>
                     <h2 class="popup__title">Редактировать профиль</h2>
                     <div class="popup__input-span">
-                        <input placeholder="Имя" type="text" name="Name" class="popup__input  popup__input_name-value" minlength="2" maxlength="40" required>
+                        <input placeholder="Имя" id="name" type="text" name="Name" class="popup__input  popup__input_name-value" minlength="2" maxlength="40" required>
                         <span class="popup__input_type_error" ></span>
                     </div>
                     <div class="popup__input-span">
-                         <input  placeholder="Работа" type="text" name="Job" class="popup__input popup__input_infoname-value" minlength="2" maxlength="200" required>
+                         <input  placeholder="Работа" id="infoname" type="text" name="Job" class="popup__input popup__input_infoname-value" minlength="2" maxlength="200" required>
                         <span class="popup__input_type_error" ></span>
                      </div>
                     <button type="submit" class="popup__submit">Сохранить</button>
@@ -50,15 +50,15 @@
         </div>
 
         <div class="popup popup_add-card">
-                <form class="popup__container popup__container_add-card">
+                <form class="popup__container popup__container_add-card" novalidate>
                     <button type="reset" class="popup__close-btn" aria-label="закрыть"></button>
                     <h2 class="popup__title">Новое место</h2>
                     <div class="popup__input-span">
-                        <input placeholder="Название" type="text" name="mesto" class="popup__input popup__input_mesto-value" minlength="2" maxlength="30" required>
+                        <input placeholder="Название" id="mesto" type="text" name="mesto" class="popup__input popup__input_mesto-value" minlength="2" maxlength="30" required>
                         <span class="popup__input_type_error" ></span>
                     </div>
                     <div class="popup__input-span">
-                        <input placeholder="Ссылка на картинку" type="url" name="image" class="popup__input popup__input_image-value" required>
+                        <input placeholder="Ссылка на картинку" id="url" type="url" name="image" class="popup__input popup__input_image-value" required>
                         <span class="popup__input_type_error popup__input-type_error-email">1114141</span>
                     </div>
                     <button type="submit" class="popup__submit">Сохранить</button>
