@@ -42,6 +42,7 @@ const infoname = profile.querySelector(".profile__infoname")
 const container = popupEdit.querySelector(".popup__container");
 const nameInput = popupEdit.querySelector('.popup__input_name-value');
 const jobInput = popupEdit.querySelector('.popup__input_infoname-value');
+const submitButton = popupEdit.querySelector('.popup__submit');
 
 const containerAddCard = popupAddCard.querySelector(".popup__container_add-card");
 const imageInput = popupAddCard.querySelector(".popup__input_image-value");
@@ -74,12 +75,14 @@ function formSubmitHandler (evt) {
 
     profileName.textContent = nameInput.value;
     infoname.textContent = jobInput.value;
+
+    popupClose(popupEdit);
+   
 }
 // функция закрытия попапа по нажатию кнопки
     function keyClosePopup(event) {
-        // const escape = (event.key === 'Escape');
         if (event.key === 'Escape') {
-             const openedPopup = document.querySelector('.popup_opened');
+             const openedPopup = document.querySelector('.popup__opened');
             popupClose(openedPopup);
 
         }

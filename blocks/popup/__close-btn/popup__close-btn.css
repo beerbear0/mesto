@@ -16,7 +16,7 @@
     opacity: .6;
     cursor: pointer;
 }
-.popup__close:focus {
+.popup__close-btn:focus {
     outline: none;
 }
 

@@ -9,11 +9,3 @@
     position: absolute;
     top: 143px;
 }
-.popup__input_type_error-two{
-    top: 200px;
-}
-
-.popup__error_visible {
-    opacity: 1;
-}
-
