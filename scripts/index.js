@@ -41,16 +41,18 @@ const infoname = profile.querySelector(".profile__infoname")
 const container = popupEdit.querySelector(".popup__container");
 const nameInput = popupEdit.querySelector('.popup__input_name-value');
 const jobInput = popupEdit.querySelector('.popup__input_infoname-value');
-const submitButton = popupEdit.querySelector('.popup__submit');
 
 const containerAddCard = popupAddCard.querySelector(".popup__container_add-card");
 const imageInput = popupAddCard.querySelector(".popup__input_image-value");
 const mestoInput = popupAddCard.querySelector(".popup__input_mesto-value");
+const popupImg = popupImage.querySelector(".popup__image");
+const popupTxt = popupImage.querySelector(".popup__image-name");
 
 // обработчик закрытия попапа
 function handlerClosePopup(evt) {
     const targetPopup = evt.target.closest('.popup');
     popupClose(targetPopup);
+
 }
 // открываем попап
 function openPopup (element) {
@@ -68,6 +70,7 @@ function popupClose (element) {
     element.classList.remove("popup__opened");
     document.removeEventListener('keydown', keyClosePopup);
 }
+
 // обработчик отправки ред.попапа
 function formSubmitHandler (evt) {
     evt.preventDefault();
@@ -114,13 +117,15 @@ function addCard (card) {
 
     cardElText.textContent = card.name;
     cardElImage.src= card.link;
-    cardElImage.alt = 'Фото';
+    cardElImage.alt = card.name;
 
     const removeBtn = newCard.querySelector(".element__delete-btn")
     removeBtn.addEventListener('click', deleteCard)
 
     const openImgBtn = newCard.querySelector(".element__open-image")
-    openImgBtn.addEventListener('click', popupImgOpen)
+    openImgBtn.addEventListener('click', () => {
+        popupImgOpen(card)
+    })
 
     return newCard;
 }
@@ -145,18 +150,11 @@ function deleteCard (event) {
     targetCard.remove();
 }
 
-function popupImgOpen (event) {
-    const targetElement = event.target;
-    const editing = targetElement.closest(".element");
+function popupImgOpen (card) {
 
-    const cardElImg = editing.querySelector(".element__image");
-    const cardElTxt = editing.querySelector(".element__title");
-    const popupImg = popupImage.querySelector(".popup__image");
-    const popupTxt = popupImage.querySelector(".popup__image-name");
-
-    popupImg.src = cardElImg.src;
-    popupImg.alt = "Фото";
-    popupTxt.textContent = cardElTxt.textContent;
+    popupImg.src = card.link
+    popupImg.alt = card.name
+    popupTxt.textContent = card.name
 
     openPopup(popupImage);
 }
