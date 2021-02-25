@@ -25,7 +25,6 @@ const initialCards = [
     }
 ];
 
-// const popupParents = document.querySelector(".popups");
 const popupEdit = document.querySelector(".popup_edit-profile");
 const popupAddCard = document.querySelector(".popup_add-card");
 const popupImage = document.querySelector(".popup_type-image");
@@ -77,7 +76,7 @@ function formSubmitHandler (evt) {
     infoname.textContent = jobInput.value;
 
     popupClose(popupEdit);
-   
+
 }
 // функция закрытия попапа по нажатию кнопки
     function keyClosePopup(event) {
@@ -160,17 +159,14 @@ function popupImgOpen (event) {
     popupTxt.textContent = cardElTxt.textContent;
 
     openPopup(popupImage);
-
 }
 
 render();
 
 buttonClosePopup.forEach(button => button.addEventListener('click', handlerClosePopup));
 popups.forEach(overlayEl => overlayEl.addEventListener('mouseup', overlayClosePopup));
-
 container.addEventListener('submit', formSubmitHandler);
 editOpenbtn.addEventListener('click', openEditPopup);
-// editOpenbtn.addEventListener('click', openPopup);
 containerAddCard.addEventListener('submit', addBtn);
 addOpenBtn.addEventListener("click", () => openPopup(popupAddCard));
 

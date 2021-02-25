@@ -35,8 +35,6 @@ const hasInvalidInput = (inputList) => {
 
 
 const toggleButtonState = (inputList, submitButtonSelector, constList) => {
-    // const findAtLeastOneNotValid = (inputElement) => !inputElement.validity.valid;
-    // const hasNotValidInput = inputList.some(findAtLeastOneNotValid);
 
     if (hasInvalidInput(inputList)) {
         submitButtonSelector.disabled = true;
@@ -46,23 +44,6 @@ const toggleButtonState = (inputList, submitButtonSelector, constList) => {
         submitButtonSelector.disabled = false;
     }
 }
-
-// const buttonActive = (submitButtonSelector, inactiveClass) => {
-//     submitButtonSelector.classList.add(inactiveClass);
-//     submitButtonSelector.disabled = false;
-// }
-// const buttonDeactive = (submitButtonSelector, inactiveClass) => {
-//     submitButtonSelector.classList.remove(inactiveClass);
-//     submitButtonSelector.disabled = true;
-// }
-//
-// const toggleButtonState = (inputList, submitButtonSelector, constList) => {
-//     if (hasInvalidInput(inputList)) {
-//         buttonActive(submitButtonSelector, constList.inactiveButtonClass);
-//     } else {
-//         buttonDeactive(submitButtonSelector, constList.inactiveButtonClass);
-//     }
-// }
 
 const setEventListener = (formElement, constList) => {
     const inputList = Array.from(formElement.querySelectorAll(constList.inputSelector));
