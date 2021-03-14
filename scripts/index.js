@@ -1,29 +1,5 @@
-const initialCards = [
-    {
-        name: 'Архыз',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-    },
-    {
-        name: 'Челябинская область',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-    },
-    {
-        name: 'Иваново',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-    },
-    {
-        name: 'Камчатка',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-    },
-    {
-        name: 'Холмогорский район',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-    },
-    {
-        name: 'Байкал',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-    }
-];
+import Card from './Card.js';
+import initialsCards from './initialsCard';
 
 const popupEdit = document.querySelector(".popup_edit-profile");
 const popupAddCard = document.querySelector(".popup_add-card");
@@ -95,40 +71,40 @@ function overlayClosePopup(event) {
     popupClose(targetOverlay);
 }
 // функции добавления карточек
-function render () {
-
-    const elem = initialCards
-        .map(addCard)
-
-    elContainer.append(...elem);
-}
-
-
-function likeBtn(evt) {
-    evt.target.classList.toggle('element__like_active')
-}
-function addCard (card) {
-
-    const newCard = cardTemplate.content.cloneNode(true);
-    const cardElText = newCard.querySelector(".element__title");
-    const cardElImage = newCard.querySelector(".element__image");
-
-    newCard.querySelector('.element__like-btn').addEventListener('click', likeBtn);
-
-    cardElText.textContent = card.name;
-    cardElImage.src= card.link;
-    cardElImage.alt = card.name;
-
-    const removeBtn = newCard.querySelector(".element__delete-btn")
-    removeBtn.addEventListener('click', deleteCard)
-
-    const openImgBtn = newCard.querySelector(".element__open-image")
-    openImgBtn.addEventListener('click', () => {
-        popupImgOpen(card)
-    })
-
-    return newCard;
-}
+// function render () {
+//
+//     const elem = initialCards
+//         .map(addCard)
+//
+//     elContainer.append(...elem);
+// }
+//
+//
+// function likeBtn(evt) {
+//     evt.target.classList.toggle('element__like_active')
+// }
+// function addCard (card) {
+//
+//     const newCard = cardTemplate.content.cloneNode(true);
+//     const cardElText = newCard.querySelector(".element__title");
+//     const cardElImage = newCard.querySelector(".element__image");
+//
+//     newCard.querySelector('.element__like-btn').addEventListener('click', likeBtn);
+//
+//     cardElText.textContent = card.name;
+//     cardElImage.src= card.link;
+//     cardElImage.alt = card.name;
+//
+//     const removeBtn = newCard.querySelector(".element__delete-btn")
+//     removeBtn.addEventListener('click', deleteCard)
+//
+//     const openImgBtn = newCard.querySelector(".element__open-image")
+//     openImgBtn.addEventListener('click', () => {
+//         popupImgOpen(card)
+//     })
+//
+//     return newCard;
+// }
 
 function addBtn (evt) {
     evt.preventDefault();
@@ -144,22 +120,22 @@ function addBtn (evt) {
     popupClose(popupAddCard);
 }
 
-function deleteCard (event) {
-    const targetElement = event.target;
-    const targetCard = targetElement.closest(".element");
-    targetCard.remove();
-}
-
-function popupImgOpen (card) {
-
-    popupImg.src = card.link
-    popupImg.alt = card.name
-    popupTxt.textContent = card.name
-
-    openPopup(popupImage);
-}
-
-render();
+// function deleteCard (event) {
+//     const targetElement = event.target;
+//     const targetCard = targetElement.closest(".element");
+//     targetCard.remove();
+// }
+//
+// function popupImgOpen (card) {
+//
+//     popupImg.src = card.link
+//     popupImg.alt = card.name
+//     popupTxt.textContent = card.name
+//
+//     openPopup(popupImage);
+// }
+//
+// render();
 
 buttonClosePopup.forEach(button => button.addEventListener('click', handlerClosePopup));
 popups.forEach(overlayEl => overlayEl.addEventListener('mouseup', overlayClosePopup));
