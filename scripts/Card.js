@@ -1,56 +1,51 @@
-export default class Card {
-    constructor(name, link) {
-       this._card = document.querySelector(selector).content.querySelector('.card-template').cloneNode(true)
+
+export {Card}
+class Card {
+    constructor(data, cardSelector) {
+       this._cardSelector = cardSelector;
+       this._card = document.querySelector(this._cardSelector).content.querySelector('.card').cloneNode(true);
+       // this._card = this._getTemplate();
        this._cardImage = this._card.querySelector('.element__image');
        this._cardTitle = this._card.querySelector('.element__title');
        this._cardLikeIcon = this._card.querySelector(".element__like-btn");
        this._cardDelete = this._card.querySelector('.element__delete-btn');
 
-       this.name = ['name'];
-       this.link = ['link'];
+       this._name = data.name;
+       this._link = data.link;
 
-       this._setEventListener();
+      // this._setEventListener();
     }
-    likeBtn(evt) {
+    // _getTemplate() {
+    //     const cardEl = document
+    //         .querySelector(this._cardSelector)
+    //         .content
+    //         .querySelector('.element')
+    //         .cloneNode(true)
+    //
+    //     return cardEl
+    // }
+
+    _likeBtn(evt) {
         evt.target.classList.toggle('element__like_active')
     }
-    addCard() {
-        // const newCard = cardTemplate.content.cloneNode(true);
-        // const cardElText = newCard.querySelector(".element__title");
-        // const cardElImage = newCard.querySelector(".element__image");
 
-        // newCard.querySelector('.element__like-btn').addEventListener('click', likeBtn);
-
-        this._cardTitle.textContent = card.name;
-        this._cardImage.src= card.link;
-        this._cardImage.alt = card.name;
-
-        // // const removeBtn = newCard.querySelector(".element__delete-btn")
-        // // removeBtn.addEventListener('click', deleteCard)
-        // //
-        // // const openImgBtn = newCard.querySelector(".element__open-image")
-        // // openImgBtn.addEventListener('click', () => {
-        // //     popupImgOpen(card)
-        // })
-        // лайк карточки
-        this._cardLikeIcon.addEventListener('click', this.likeBtn());
-        // удаление карточки
-        this._cardDelete.addEventListener('click', this.deleteCard())
-
-        return this._card
-    }
-    deleteCard (event) {
+    _deleteCard (event) {
         const targetElement = event.target;
         const targetCard = targetElement.closest(".element");
         targetCard.remove();
     }
-    popupImgOpen (card) {
-        popupImg.src = card.link
-        popupImg.alt = card.name
-        popupTxt.textContent = card.name
-        openPopup(popupImage);
-}
-    // _setEventListener{
-    //
-    // }
+
+    _setEventListeners() {
+        this._cardLikeIcon.addEventListener('click', () => this._likeBtn());
+        this._cardDelete.addEventListener('click', () => this._deleteCard())
+    }
+
+    addCard() {
+        this._cardTitle.textContent = this._name;
+        this._cardImage.src= this._link;
+        this._cardImage.alt = this._name;
+        this._setEventListeners();
+
+        return this._card
+    }
 }
