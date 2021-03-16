@@ -4,7 +4,7 @@ import {FormValidation} from "./FormValidation.js";
 
 const popupEdit = document.querySelector(".popup_edit-profile");
 const popupAddCard = document.querySelector(".popup_add-card");
-// const popupImage = document.querySelector(".popup_type-image");
+const popupImage = document.querySelector(".popup_type-image");
 const profile = document.querySelector(".profile");
 const elContainer = document.querySelector(".elements");
 const cardTemplate = document.querySelector('.card-template');
@@ -16,8 +16,11 @@ const profileName = profile.querySelector(".profile__name");
 const buttonClosePopup = document.querySelectorAll(".popup__close-btn")
 const infoname = profile.querySelector(".profile__infoname")
 const container = popupEdit.querySelector(".popup__container");
+
 const nameInput = popupEdit.querySelector('.popup__input_name-value');
 const jobInput = popupEdit.querySelector('.popup__input_infoname-value');
+const imageInput = popupAddCard.querySelector(".popup__input_image-value");
+const mestoInput = popupAddCard.querySelector(".popup__input_mesto-value");
 
 const containerAddCard = popupAddCard.querySelector(".popup__container_add-card");
 
@@ -58,128 +61,68 @@ function formSubmitHandler (evt) {
 
 }
 // функция закрытия попапа по нажатию кнопки
-    function keyClosePopup(event) {
-        if (event.key === 'Escape') {
-             const openedPopup = document.querySelector('.popup__opened');
-            popupClose(openedPopup);
+function keyClosePopup(event) {
+    if (event.key === 'Escape') {
+        const openedPopup = document.querySelector('.popup__opened');
+        popupClose(openedPopup);
 
-        }
     }
+}
 // функция закрытия попапа по клику оверлай
 function overlayClosePopup(event) {
     const targetOverlay = event.target;
     popupClose(targetOverlay);
 }
-
-// function createCard (obj) {
-//     const card = new Card(obj, ('.card-template'));
-//     const cardElement  = card.addCard();
-//
-//     return cardElement
-// }
-// initialCards.forEach(elContainer);
-
-// Создаем карты
-function createCard(item) {
-    elContainer.prepend(new Card(item, '.card-template').createCard());
-}
-
-// Кнопка добавить карточку
-function addCardSubmit(evt) {
-    evt.preventDefault();
-    const cardArguments = { name: inputCardTitle.value, link: inputCardImage.value };
-
-    createCard(cardArguments);
-    popupClose(popupAddCard);
-}
-
-// function addBtn (evt) {
-//     evt.preventDefault();
-//     const inputText = mestoInput.value;
-//     const inputLink = imageInput.value;
-//     const cardAdd = addCard({name: inputText, link: inputLink})
-//
-//     elContainer.prepend(cardAdd);
-//
-//     imageInput.value = '';
-//     mestoInput.value = '';
-//
-//     popupClose(popupAddCard);
-// }
-
-
-// добавляем карты из обьекта
-// initialCards.forEach((card) => {
-//     cardTemplate.prepend(createCard(card))
-// })
-
-function popupImgOpen (card) {
+// функция открытия попапа с картинкой
+function popupImageOpen(evt) {
     const popupImg = cardTemplate.querySelector('.popup__image');
-    const popupTxt = cardTempate.querySelector(".element__title");
+    const popupTxt = cardTemplate.querySelector('.popup__title');
+
     if (evt.target.classList.contains('element__image')) {
-        popupImg.src = card.link
-        popupImg.alt = card.name
-        popupTxt.textContent = card.name
-        openPopup(popupImage);
+        popupImg.src = evt.target.src;
+        popupImg.alt = evt.target.alt;
+        popupTxt.textContent = evt.target.alt
+        openPopup(popupImage)
     }
 }
+// кнопка добавления карточки
+function addCardSubmit (evt) {
+    evt.preventDefault();
+    const inputText = mestoInput.value;
+    const inputLink = imageInput.value;
+    const cardAdd = createCard({name: inputText, link: inputLink})
+
+    createCard(cardAdd);
+    popupClose(popupAddCard);
+}
+// создание карточки
+function createCard(item) {
+    elContainer.prepend(new Card(item, '.card-template').addCard());
+}
+
+function addNewCard (evt) {
+    evt.preventDefault();
+    const newCard = {name: mestoInput.value, link: imageInput.value}
+
+    createCard(newCard);
+    popupClose(popupAddCard)
+}
+
+initialCards.forEach(function (item) {
+    createCard(item, elContainer, '.element')
+})
+Array.from(document.querySelectorAll(".popup__container")).forEach((formElement) => {
+    const formValidation = new FormValidation(constList, formElement);
+    formValidation.enableValidation()
+})
+
+elContainer.addEventListener('submit', addNewCard);
 buttonClosePopup.forEach(button => button.addEventListener('click', handlerClosePopup));
 popups.forEach(overlayEl => overlayEl.addEventListener('mouseup', overlayClosePopup));
 container.addEventListener('submit', formSubmitHandler);
 editOpenbtn.addEventListener('click', openEditPopup);
 containerAddCard.addEventListener('submit', addCardSubmit);
 addOpenBtn.addEventListener("click", () => openPopup(popupAddCard));
-elContainer.addEventListener('click', popupImgOpen)
+elContainer.addEventListener('click', popupImageOpen)
+// container.addEventListener('submit', addNewCard)
 
-Array.from(document.querySelectorAll(".popup__container")).forEach((formElement) => {
-    const formValidation = new FormValidation(constList, formElement);
-    const formValid = formValidation.enableValidation()
-})
-
-
-// функции добавления карточек
-// function render () {
-//
-//     const elem = initialCards
-//         .map(addCard)
-//
-//     elContainer.append(...elem);
-// }
-//
-//
-// function likeBtn(evt) {
-//     evt.target.classList.toggle('element__like_active')
-// }
-// function addCard (card) {
-//
-//     const newCard = cardTemplate.content.cloneNode(true);
-//     const cardElText = newCard.querySelector(".element__title");
-//     const cardElImage = newCard.querySelector(".element__image");
-//
-//     newCard.querySelector('.element__like-btn').addEventListener('click', likeBtn);
-//
-//     cardElText.textContent = card.name;
-//     cardElImage.src= card.link;
-//     cardElImage.alt = card.name;
-//
-//     const removeBtn = newCard.querySelector(".element__delete-btn")
-//     removeBtn.addEventListener('click', deleteCard)
-//
-//     const openImgBtn = newCard.querySelector(".element__open-image")
-//     openImgBtn.addEventListener('click', () => {
-//         popupImgOpen(card)
-//     })
-//
-//     return newCard;
-// }
-
-// render();
-
-
-
-// function deleteCard (event) {
-//     const targetElement = event.target;
-//     const targetCard = targetElement.closest(".element");
-//     targetCard.remove();
-// }
-//
