@@ -1,12 +1,11 @@
 import {openPopup} from "./index.js";
 
-export {Card}
-class Card {
-    constructor(item, templateElement, cardSelector) {
-        this._cardSelector = cardSelector;
+
+export class Card {
+    constructor(card) {
         this._card = document.querySelector('.card-template');
-        this._name = item.name;
-        this._link = item.link;
+        this._name = card.name;
+        this._link = card.link;
     }
     _likeBtn(evt) {
         evt.target.classList.toggle('element__like_active')
@@ -57,7 +56,5 @@ class Card {
         this._element.querySelector('.element__image').alt = this._link;
 
         return this._element;
-
     }
-
 }

@@ -3,13 +3,7 @@ export class FormValidation {
     constructor(cardSelectors, formElement) {
         this._cardSelectors = cardSelectors
         this._formElement = formElement;
-        // this._inputSelector = constList.inputSelector;
-        // this._submitButtonSelector = constList.submitButtonSelector;
-        // this._inactiveButtonClass = constList.inactiveButtonClass
-        // this._inputErrorClass = constList.inputErrorClass
-        // this._errorClass = constList.errorClass
-        // this._buttonElement = this._formElement.querySelector(this._submitButtonSelector);
-        // this._inputList = Array.from(this._formElement.querySelectorAll(this._inputSelector));
+
     }
     enableValidation() {
         this._formElement.addEventListener('submit', (evt) => evt.preventDefault())
@@ -56,7 +50,6 @@ export class FormValidation {
     _showInputError(inputElement, errorMessage) {
 
         const errorElement = this._formElement.querySelector(`#${inputElement.id}-error`);
-        // const errorElement = this._inputElement.closest(this._cardSelectors.labelSelectors).querySelector(this._cardSelectors.inputErrorSelectors)
         this._inputElement.classList.add(this._cardSelectors.inputErrorClass);
         errorElement.textContent = errorMessage;
         errorElement.classList.add ( this._cardSelectors.errorClass);

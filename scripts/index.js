@@ -4,10 +4,9 @@ import {FormValidation} from "./FormValidation.js";
 
 const popupEdit = document.querySelector(".popup_edit-profile");
 const popupAddCard = document.querySelector(".popup_add-card");
-const popupImage = document.querySelector(".popup_type-image");
+
 const profile = document.querySelector(".profile");
 const elContainer = document.querySelector(".elements");
-const cardTemplate = document.querySelector('.card-template');
 const popups = document.querySelectorAll('.popup');
 
 const editOpenbtn = profile.querySelector(".profile__edit-btn");
@@ -28,7 +27,6 @@ const containerAddCard = popupAddCard.querySelector(".popup__container_add-card"
 function handlerClosePopup(evt) {
     const targetPopup = evt.target.closest('.popup');
     popupClose(targetPopup);
-
 }
 
 // открываем попап
@@ -73,39 +71,22 @@ function overlayClosePopup(event) {
     const targetOverlay = event.target;
     popupClose(targetOverlay);
 }
-// функция открытия попапа с картинкой
-// function popupImageOpen(evt) {
-//     const popupImg = cardTemplate.querySelector('.popup__image');
-//     const popupTxt = cardTemplate.querySelector('.popup__title');
-//
-//     if (evt.target.classList.contains('element__image')) {
-//         popupImg.src = evt.target.src;
-//         popupImg.alt = evt.target.alt;
-//         popupTxt.textContent = evt.target.alt
-//         openPopup(popupImage)
-//     }
-// }
-// кнопка добавления карточки
-function addCardSubmit (evt) {
-    evt.preventDefault();
-    const inputText = mestoInput.value;
-    const inputLink = imageInput.value;
-    const cardAdd = createCard({name: inputText, link: inputLink})
 
-    createCard(cardAdd);
-    popupClose(popupAddCard);
-}
 // создание карточки
 function createCard(item) {
     elContainer.prepend(new Card(item, '.card-template').addCard());
 }
 
+// обработчик попапа доб.карточки
 function addNewCard (evt) {
     evt.preventDefault();
     const newCard = {name: mestoInput.value, link: imageInput.value}
 
     createCard(newCard);
-    popupClose(popupAddCard)
+    popupClose(popupAddCard);
+
+    mestoInput.value = '';
+    imageInput.value = '';
 }
 
 initialCards.forEach(function (item) {
@@ -116,12 +97,10 @@ Array.from(document.querySelectorAll(".popup__container")).forEach((formElement)
     formValidation.enableValidation()
 })
 
-elContainer.addEventListener('submit', addNewCard);
+containerAddCard.addEventListener('submit', addNewCard);
 buttonClosePopup.forEach(button => button.addEventListener('click', handlerClosePopup));
 popups.forEach(overlayEl => overlayEl.addEventListener('mouseup', overlayClosePopup));
 container.addEventListener('submit', formSubmitHandler);
 editOpenbtn.addEventListener('click', openEditPopup);
-containerAddCard.addEventListener('submit', addCardSubmit);
 addOpenBtn.addEventListener("click", () => openPopup(popupAddCard));
-// elContainer.addEventListener('click', popupImageOpen)
 
