@@ -32,7 +32,7 @@ function handlerClosePopup(evt) {
 }
 
 // открываем попап
-function openPopup (element) {
+export function openPopup (element) {
     element.classList.add("popup__opened");
     document.addEventListener('keydown', keyClosePopup);
 }
@@ -74,17 +74,17 @@ function overlayClosePopup(event) {
     popupClose(targetOverlay);
 }
 // функция открытия попапа с картинкой
-function popupImageOpen(evt) {
-    const popupImg = cardTemplate.querySelector('.popup__image');
-    const popupTxt = cardTemplate.querySelector('.popup__title');
-
-    if (evt.target.classList.contains('element__image')) {
-        popupImg.src = evt.target.src;
-        popupImg.alt = evt.target.alt;
-        popupTxt.textContent = evt.target.alt
-        openPopup(popupImage)
-    }
-}
+// function popupImageOpen(evt) {
+//     const popupImg = cardTemplate.querySelector('.popup__image');
+//     const popupTxt = cardTemplate.querySelector('.popup__title');
+//
+//     if (evt.target.classList.contains('element__image')) {
+//         popupImg.src = evt.target.src;
+//         popupImg.alt = evt.target.alt;
+//         popupTxt.textContent = evt.target.alt
+//         openPopup(popupImage)
+//     }
+// }
 // кнопка добавления карточки
 function addCardSubmit (evt) {
     evt.preventDefault();
@@ -123,6 +123,5 @@ container.addEventListener('submit', formSubmitHandler);
 editOpenbtn.addEventListener('click', openEditPopup);
 containerAddCard.addEventListener('submit', addCardSubmit);
 addOpenBtn.addEventListener("click", () => openPopup(popupAddCard));
-elContainer.addEventListener('click', popupImageOpen)
-// container.addEventListener('submit', addNewCard)
+// elContainer.addEventListener('click', popupImageOpen)
 
