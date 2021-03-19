@@ -49,11 +49,13 @@ export class Card {
     addCard() {
         this._element = this._getTemplate();
 
+        const elImage =   this._element.querySelector('.element__image');
+
         this._setEventListeners();
 
         this._element.querySelector('.element__title').textContent = this._name;
-        this._element.querySelector('.element__image').src = this._link;
-        this._element.querySelector('.element__image').alt = this._link;
+        elImage.src = this._link;
+        elImage.alt = this._link;
 
         return this._element;
     }

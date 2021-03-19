@@ -8,5 +8,5 @@
     white-space: nowrap;
     overflow: hidden;
     margin: 25px auto 32px 30px;
-    
+    max-width: 200px;
 }
