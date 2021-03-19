@@ -22,6 +22,8 @@ const imageInput = popupAddCard.querySelector(".popup__input_image-value");
 const mestoInput = popupAddCard.querySelector(".popup__input_mesto-value");
 
 const containerAddCard = popupAddCard.querySelector(".popup__container_add-card");
+const popupFormAdd = document.querySelector('.popup__form_add');
+const btnSubmit = document.querySelector('.popup__submit_add-card')
 
 // обработчик закрытия попапа
 function handlerClosePopup(evt) {
@@ -85,8 +87,6 @@ function addNewCard (evt) {
     createCard(newCard);
     popupClose(popupAddCard);
 
-    mestoInput.value = '';
-    imageInput.value = '';
 }
 
 initialCards.forEach(function (item) {
@@ -102,5 +102,10 @@ buttonClosePopup.forEach(button => button.addEventListener('click', handlerClose
 popups.forEach(overlayEl => overlayEl.addEventListener('mouseup', overlayClosePopup));
 container.addEventListener('submit', formSubmitHandler);
 editOpenbtn.addEventListener('click', openEditPopup);
-addOpenBtn.addEventListener("click", () => openPopup(popupAddCard));
+addOpenBtn.addEventListener("click", () => {
+    popupFormAdd.reset();
+    btnSubmit.classList.add('popup__submit_disabled');
+    btnSubmit.disabled = true;
+    openPopup(popupAddCard);
+});
 
