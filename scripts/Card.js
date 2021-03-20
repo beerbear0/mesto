@@ -55,7 +55,7 @@ export class Card {
 
         this._element.querySelector('.element__title').textContent = this._name;
         elImage.src = this._link;
-        elImage.alt = this._link;
+        elImage.alt = this._name;
 
         return this._element;
     }
