@@ -1,4 +1,4 @@
-import {nameInput, jobInput} from "./index.js";
+// import {nameInput, jobInput} from "./index.js";
 
 export default class UserInfo {
     constructor(nameSelector, jobSelector) {
@@ -8,12 +8,12 @@ export default class UserInfo {
     getUserInfo() {
         return {
             name: this._name.textContent,
-            job: this._job.textContent
+            info: this._job.textContent
         }
     }
 
     setUserInfo(data) {
-        this._name = nameInput;
-        this._job = jobInput;
+        this._name = data.profileName;
+        this._job = data.infoname;
     }
 }
