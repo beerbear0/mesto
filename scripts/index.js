@@ -1,6 +1,11 @@
 import {Card} from './Card.js';
 import {constList, initialCards} from './initialsCard.js';
 import {FormValidation} from "./FormValidation.js";
+import Section from "./Section.js";
+import Popup from "./Popup.js";
+import PopupWithImage from "./PopupWithImage.js";
+import PopupWithForm from "./PopupWithForm.js";
+
 
 const popupEdit = document.querySelector(".popup_edit-profile");
 const popupAddCard = document.querySelector(".popup_add-card");
@@ -75,27 +80,35 @@ function overlayClosePopup(event) {
 }
 
 // создание карточки
-function createCard(item) {
-    elContainer.prepend(new Card(item, '.card-template').addCard());
-}
+// function createCard(item) {
+//     elContainer.prepend(new Card(item, '.card-template').addCard());
+// }
 
 // обработчик попапа доб.карточки
 function addNewCard (evt) {
     evt.preventDefault();
     const newCard = {name: mestoInput.value, link: imageInput.value}
 
-    createCard(newCard);
+    cardLIst(newCard);
     popupClose(popupAddCard);
 
 }
-
-initialCards.forEach(function (item) {
-    createCard(item, elContainer, '.element')
-})
+const cardLIst = new Section({
+    items: constList,
+    renderer: (item) => {
+        cardLIst.addItem(addNewCard(item));
+    }
+},
+    elContainer)
+// initialCards.forEach(function (item) {
+//     createCard(item, elContainer, '.element')
+// })
 Array.from(document.querySelectorAll(".popup__container")).forEach((formElement) => {
     const formValidation = new FormValidation(constList, formElement);
     formValidation.enableValidation()
 })
+
+
 
 containerAddCard.addEventListener('submit', addNewCard);
 buttonClosePopup.forEach(button => button.addEventListener('click', handlerClosePopup));

@@ -1,0 +1,19 @@
+{
+  "name": "mesto",
+  "version": "1.0.0",
+  "description": "---\r ## Ссылка.\r Первый проект в котором используется JS [Ткни](https://beerbear0.github.io/mesto/index.html)\r ---\r ## Описание.\r Это начало большего проекта. Пока это только основы большего проекта.\r ---\r ## Техническая часть. \r ---\r В этом проекте помимо стандартной верстки используются:\r Проект создан по технологии БЭМ.\r mesto.html -html верстка \r mesto.css - css верстка\r mesto.js - JS верстака\r Flexbox\r Grid\r ---\r ---\r ---\r ######Спасибо за внимание.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BeerBear0/mesto.git"
+  },
+  "author": "Nikita Chernov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BeerBear0/mesto/issues"
+  },
+  "homepage": "https://github.com/BeerBear0/mesto#readme"
+}
