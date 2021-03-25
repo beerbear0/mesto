@@ -5,7 +5,7 @@ import Section from "./Section.js";
 import Popup from "./Popup.js";
 import PopupWithImage from "./PopupWithImage.js";
 import PopupWithForm from "./PopupWithForm.js";
-
+import UserInfo from "./UserInfo.js";
 
 const popupEdit = document.querySelector(".popup_edit-profile");
 const popupAddCard = document.querySelector(".popup_add-card");
@@ -21,8 +21,8 @@ const buttonClosePopup = document.querySelectorAll(".popup__close-btn")
 const infoname = profile.querySelector(".profile__infoname")
 const container = popupEdit.querySelector(".popup__container");
 
-const nameInput = popupEdit.querySelector('.popup__input_name-value');
-const jobInput = popupEdit.querySelector('.popup__input_infoname-value');
+export const nameInput = popupEdit.querySelector('.popup__input_name-value');
+export const jobInput = popupEdit.querySelector('.popup__input_infoname-value');
 const imageInput = popupAddCard.querySelector(".popup__input_image-value");
 const mestoInput = popupAddCard.querySelector(".popup__input_mesto-value");
 
