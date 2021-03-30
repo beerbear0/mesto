@@ -8,26 +8,17 @@ export class Card {
         this._name = card.name;
         this._link = card.link;
     }
+    // обработчик лайков
     _likeBtn(evt) {
         evt.target.classList.toggle('element__like_active')
     }
-
+    // удаление карточек
     _deleteCard (evt) {
         const targetElement = evt.target;
         const targetCard = targetElement.closest(".element");
         targetCard.remove();
     }
-    // _popUpImageOpen() {
-    //     const popupImage = document.querySelector(".popup_type-image");
-    //     const popupImg = popupImage.querySelector(".popup__image");
-    //     const popupTxt = popupImage.querySelector(".popup__image-name");
-    //
-    //     popupImg.src = this._link;
-    //     popupImg.alt = this._name;
-    //     popupTxt.textContent = this._name
-    //
-    //     openPopup(popupImage)
-    // }
+    // доб. слушатель
     _setEventListeners() {
         const deleteButton = this._element.querySelector('.element__delete-btn');
         deleteButton.addEventListener('click', (evt) => {
@@ -41,12 +32,14 @@ export class Card {
 
         const elImage = this._element.querySelector('.element__image');
         elImage.addEventListener('click', () => {
-            this._handleCardClick(this._link, this._name)
+            this._handleCardClick(this._name, this._link)
         })
     }
+    // клонируем темплайт елемент
     _getTemplate() {
         return this._card.content.cloneNode(true)
     }
+    // доб. карточку
     addCard() {
         this._element = this._getTemplate();
 

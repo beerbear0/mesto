@@ -32,6 +32,7 @@ const btnSubmit = document.querySelector('.popup__submit_add-card')
 
 const userInfo = new UserInfo('.profile__name', '.profile__infoname');
 
+// попап редактирования информации
 const editSubmitHandler = (data) => {
     userInfo.setUserInfo({
         name: data["name-input"],
@@ -44,7 +45,6 @@ const formEdit = new PopupWithForm('.popup_edit-profile', (data) => {
     editSubmitHandler(data);
 })
 
-
 const handleEditPopup = () => {
     const {name, info} = userInfo.getUserInfo();
     nameInput.value = name;
@@ -52,11 +52,9 @@ const handleEditPopup = () => {
     formEdit.open();
 }
 
-
+// попап добавления карточки
 const formAddCardHandler = (data) => {
-    const name = data["mesto-input"];
-    const link = data["url-input"];
-    cardList.addItem(createCard({ name, link }));
+    cardList.addItem(createCard({ mestoInput, imageInput }));
     formAddCard.close();
 }
 
@@ -69,10 +67,11 @@ const addCardPopupHandler = () => {
     // popupAddCard.reset();
     formAddCard.open();
 }
-
+// попал открытия фото
 const popupImgOpen = new PopupWithImage('.popup_type-image');
 // popupImgOpen.setEventListeners();
 
+// функия создания карточки
 function createCard (item) {
     const card = new Card(
         item,
@@ -81,22 +80,22 @@ function createCard (item) {
     return card.addCard();
 }
 
-
+// фунция доб. карточки в разметку
 const cardList = new Section({
     items: initialCards,
     renderer: (item) => {
-        // createCard(item)
         cardList.addItem(createCard(item))
     }
 }, '.elements');
 
 
-// const editFormValidation = new FormValidation('.popup_edit-profile', formE)
+// валидация форм
 Array.from(document.querySelectorAll(".popup__container")).forEach((formElement) => {
     const formValidation = new FormValidation(constList, formElement);
     formValidation.enableValidation()
 })
 
+// слушатели 
 formEdit.setEventListeners();
 formAddCard.setEventListeners();
 
