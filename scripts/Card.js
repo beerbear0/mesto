@@ -39,11 +39,6 @@ export class Card {
             this._likeBtn(evt)
         })
 
-        // const popupImageButton = this._element.querySelector('.element__image');
-        // popupImageButton.addEventListener('click', (evt) => {
-        //     this._popUpImageOpen()
-        // })
-
         const elImage = this._element.querySelector('.element__image');
         elImage.addEventListener('click', () => {
             this._handleCardClick(this._link, this._name)
