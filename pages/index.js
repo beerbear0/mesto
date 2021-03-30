@@ -1,34 +1,19 @@
-import {Card} from './Card.js';
-import {constList, initialCards} from './initialsCard.js';
-import {FormValidation} from "./FormValidation.js";
-import Section from "./Section.js";
-import Popup from "./Popup.js";
-import PopupWithImage from "./PopupWithImage.js";
-import PopupWithForm from "./PopupWithForm.js";
-import UserInfo from "./UserInfo.js";
+import {Card} from '../Components/Card.js';
+import {constList,
+    initialCards,
+    nameInput,
+    jobInput,
+    editOpenbtn,
+    addOpenBtn,
+    btnSubmit,
+} from '../utils/constants.js';
 
-const popupEdit = document.querySelector(".popup_edit-profile");
-const popupAddCard = document.querySelector(".popup_add-card");
-
-const profile = document.querySelector(".profile");
-const elContainer = document.querySelector(".elements");
-
-const nameInput = popupEdit.querySelector('.popup__input_name-value');
-const jobInput = popupEdit.querySelector('.popup__input_infoname-value');
-
-const editOpenbtn = profile.querySelector(".profile__edit-btn");
-const addOpenBtn = profile.querySelector(".profile__add");
-const profileName = profile.querySelector(".profile__name");
-const buttonClosePopup = document.querySelectorAll(".popup__close-btn")
-const infoname = profile.querySelector(".profile__infoname")
-const container = popupEdit.querySelector(".popup__container");
-
-const imageInput = popupAddCard.querySelector(".popup__input_image-value");
-const mestoInput = popupAddCard.querySelector(".popup__input_mesto-value");
-const containerAddCard = popupAddCard.querySelector(".popup__container_add-card");
-const popupFormAdd = document.querySelector('.popup__form_add');
-const btnSubmit = document.querySelector('.popup__submit_add-card')
-
+import {FormValidation} from "../Components/FormValidation.js";
+import Section from "../Components/Section.js";
+import Popup from "../Components/Popup.js";
+import PopupWithImage from "../Components/PopupWithImage.js";
+import PopupWithForm from "../Components/PopupWithForm.js";
+import UserInfo from "../Components/UserInfo.js";
 
 const userInfo = new UserInfo('.profile__name', '.profile__infoname');
 
@@ -66,7 +51,8 @@ const formAddCard = new PopupWithForm('.popup_add-card', (data) => {
 
 
 const addCardPopupHandler = () => {
-    // popupAddCard.reset();
+    btnSubmit.classList.add('popup__submit_disabled');
+    btnSubmit.disabled = true;
     formAddCard.open();
 }
 // попал открытия фото

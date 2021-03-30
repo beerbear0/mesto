@@ -34,3 +34,11 @@ export const constList = {
     inputErrorClass: 'popup__input_disabled',
     errorClass: 'popup__error_visible'
 }
+
+export const popupEdit = document.querySelector(".popup_edit-profile");
+export const profile = document.querySelector(".profile");
+export const nameInput = popupEdit.querySelector('.popup__input_name-value');
+export const jobInput = popupEdit.querySelector('.popup__input_infoname-value');
+export const editOpenbtn = profile.querySelector(".profile__edit-btn");
+export const addOpenBtn = profile.querySelector(".profile__add");
+export const btnSubmit = document.querySelector('.popup__submit_add-card')
