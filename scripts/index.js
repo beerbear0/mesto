@@ -95,7 +95,7 @@ Array.from(document.querySelectorAll(".popup__container")).forEach((formElement)
     formValidation.enableValidation()
 })
 
-// слушатели 
+// слушатели
 formEdit.setEventListeners();
 formAddCard.setEventListeners();
 

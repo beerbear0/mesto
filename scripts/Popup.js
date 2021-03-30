@@ -8,39 +8,25 @@ export default class Popup {
     // открываем попап
     open() {
         this._popup.classList.add('popup__opened');
-        // this._popup.addEventListener('click', this._popupClickHandler)
-        document.addEventListener('keydown', this._handleEscClose);
+        this._popup.addEventListener('mousedown', this._popupClickHandler)
+        document.addEventListener('keydown', this._popupClickHandler);
     }
     // закрываем попап
     close() {
         this._popup.classList.remove("popup__opened");
-        document.removeEventListener('keydown', this._handleEscClose);
+        this._popup.removeEventListener('mousedown', this._popupClickHandler)
+        document.removeEventListener('keydown', this._popupClickHandler);
     }
-    // обработчики закрытия попапа
-    _handleEscClose(evt) {
-        if (evt.key === 'Escape') {
-            this.close();
-        }
-    }
-    _handlerOverlayClose(evt) {
-        if(evt.target === evt.currentTarget) {
-            this.close();
-        }
-    }
-
     _popupClickHandler(evt) {
-        if (evt.target.classList.contains("popup__opened")) {
-            this.close();
+        if (evt.key === 'Escape' || evt.target === evt.currentTarget || evt.target === this._popup) {
+            this.close()
         }
     }
     // добавляем слушатель
     setEventListeners() {
-
         this._popupCloseBtn.addEventListener('click', () => {
             this.close();
         })
-        this._popupCloseBtn.addEventListener('click', (evt) => {
-            this._handlerOverlayClose(evt)
-        })
+
     }
 }
