@@ -54,7 +54,9 @@ const handleEditPopup = () => {
 
 // попап добавления карточки
 const formAddCardHandler = (data) => {
-    cardList.addItem(createCard({ mestoInput, imageInput }));
+    const name = data["mesto-input"];
+    const link = data["url-input"];
+    cardList.addItem(createCard({ name, link }));
     formAddCard.close();
 }
 
