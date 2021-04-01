@@ -88,6 +88,7 @@ Array.from(document.querySelectorAll(".popup__container")).forEach((formElement)
 // слушатели
 formEdit.setEventListeners();
 formAddCard.setEventListeners();
+popupImgOpen.setEventListeners()
 
 editOpenbtn.addEventListener('click', handleEditPopup);
 addOpenBtn.addEventListener('click', addCardPopupHandler);
