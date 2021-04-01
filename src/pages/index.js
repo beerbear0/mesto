@@ -1,3 +1,5 @@
+import "./index.css";
+
 import {Card} from '../Components/Card.js';
 import {constList,
     initialCards,

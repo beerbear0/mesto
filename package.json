@@ -4,7 +4,8 @@
   "description": "---\r ## Ссылка.\r Первый проект в котором используется JS [Ткни](https://beerbear0.github.io/mesto/index.html)\r ---\r ## Описание.\r Это начало большего проекта. Пока это только основы большего проекта.\r ---\r ## Техническая часть. \r ---\r В этом проекте помимо стандартной верстки используются:\r Проект создан по технологии БЭМ.\r mesto.html -html верстка \r mesto.css - css верстка\r mesto.js - JS верстака\r Flexbox\r Grid\r ---\r ---\r ---\r ######Спасибо за внимание.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "webpack --mode production",
+    "dev": "webpack serve"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,23 @@
   "bugs": {
     "url": "https://github.com/BeerBear0/mesto/issues"
   },
-  "homepage": "https://github.com/BeerBear0/mesto#readme"
+  "homepage": "https://github.com/BeerBear0/mesto#readme",
+  "devDependencies": {
+    "@babel/core": "^7.13.14",
+    "@babel/preset-env": "^7.13.12",
+    "autoprefixer": "^10.2.5",
+    "babel-loader": "^8.2.2",
+    "clean-webpack-plugin": "^3.0.0",
+    "css-loader": "^5.2.0",
+    "cssnano": "^4.1.10",
+    "html-webpack-plugin": "^5.3.1",
+    "mini-css-extract-plugin": "^1.4.0",
+    "postcss-loader": "^5.2.0",
+    "webpack": "^5.28.0",
+    "webpack-cli": "^4.6.0",
+    "webpack-dev-server": "^3.11.2"
+  },
+  "dependencies": {
+    "core-js": "^3.9.1"
+  }
 }
