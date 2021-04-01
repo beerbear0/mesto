@@ -1,7 +1,7 @@
 import Popup from "./Popup.js";
 
 //класс редактирования попапа формы
-export default class PopupWithImage extends Popup{
+export default class PopupWithImage extends Popup {
     constructor(popupSelector) {
         super(popupSelector);
     }
@@ -16,5 +16,4 @@ export default class PopupWithImage extends Popup{
         popupCardImg.alt = name;
         popupCardTxt.textContent = name;
     }
-
 }
