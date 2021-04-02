@@ -19,14 +19,4 @@ export default class PopupWithImage extends Popup {
     setEventListeners() {
         super.setEventListeners();
     }
-
-    // setEventListener() {
-    //     const popupImg = document.querySelector('.popup_type-image');
-    //     const closeBtn = popupImg.querySelector('.popup__close-btn');
-    //
-    //     closeBtn.addEventListener('click', () => {
-    //         this.close()
-    //     })
-    //
-    // }
 }

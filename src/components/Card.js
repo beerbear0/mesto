@@ -2,9 +2,9 @@
 
 
 export class Card {
-    constructor(card, handleCardClick) {
+    constructor(card, cardSelector, handleCardClick) {
         this._handleCardClick = handleCardClick;
-        this._card = document.querySelector('.card-template');
+        this._card = document.querySelector(cardSelector);
         this._name = card.name;
         this._link = card.link;
     }

@@ -1,6 +1,6 @@
 import "./index.css";
 
-import {Card} from '../Components/Card.js';
+import {Card} from '../components/Card.js';
 import {constList,
     initialCards,
     nameInput,
@@ -10,12 +10,12 @@ import {constList,
     btnSubmit,
 } from '../utils/constants.js';
 
-import {FormValidation} from "../Components/FormValidation.js";
-import Section from "../Components/Section.js";
-import Popup from "../Components/Popup.js";
-import PopupWithImage from "../Components/PopupWithImage.js";
-import PopupWithForm from "../Components/PopupWithForm.js";
-import UserInfo from "../Components/UserInfo.js";
+import {FormValidation} from "../components/FormValidation.js";
+import Section from "../components/Section.js";
+import Popup from "../components/Popup.js";
+import PopupWithImage from "../components/PopupWithImage.js";
+import PopupWithForm from "../components/PopupWithForm.js";
+import UserInfo from "../components/UserInfo.js";
 
 const userInfo = new UserInfo('.profile__name', '.profile__infoname');
 
@@ -65,6 +65,7 @@ const popupImgOpen = new PopupWithImage('.popup_type-image');
 function createCard (item) {
     const card = new Card(
         item,
+        '.card-template',
         () =>  popupImgOpen.open(item.name, item.link),
         );
     return card.addCard();
