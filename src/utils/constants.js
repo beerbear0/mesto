@@ -42,3 +42,12 @@ export const jobInput = popupEdit.querySelector('.popup__input_infoname-value');
 export const editOpenbtn = profile.querySelector(".profile__edit-btn");
 export const addOpenBtn = profile.querySelector(".profile__add");
 export const btnSubmit = document.querySelector('.popup__submit_add-card')
+
+
+export const apiConfig = {
+    address:`https://mesto.nomoreparties.co./v1/cohort-22`,
+    headers: {
+        authorization: '9e52048b-0cd1-4d2d-8134-21ed3d4ebe58',
+        'Content-Type': 'application/json'
+}
+}

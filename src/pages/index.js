@@ -16,7 +16,7 @@ import Popup from "../components/Popup.js";
 import PopupWithImage from "../components/PopupWithImage.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 import UserInfo from "../components/UserInfo.js";
-
+import Api from "../components/Api.js";
 const userInfo = new UserInfo('.profile__name', '.profile__infoname');
 
 // попап редактирования информации
