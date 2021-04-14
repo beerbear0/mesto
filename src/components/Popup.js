@@ -22,6 +22,9 @@ export default class Popup {
             this.close()
         }
     }
+    loaderHandler(textMessage) {
+        this._popupCloseBtn.textContent = textMessage;
+    }
     // добавляем слушатель
     setEventListeners() {
         this._popupCloseBtn.addEventListener('click', () => {

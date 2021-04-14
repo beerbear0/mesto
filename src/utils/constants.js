@@ -1,31 +1,4 @@
 
-export const initialCards = [
-    {
-        name: 'Архыз',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-    },
-    {
-        name: 'Челябинская область',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-    },
-    {
-        name: 'Иваново',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-    },
-    {
-        name: 'Камчатка',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-    },
-    {
-        name: 'Холмогорский район',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-    },
-    {
-        name: 'Байкал',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-    }
-];
-
 export const constList = {
     formSelector: '.popup__form',
     inputSelector: '.popup__input',
@@ -42,12 +15,13 @@ export const jobInput = popupEdit.querySelector('.popup__input_infoname-value');
 export const editOpenbtn = profile.querySelector(".profile__edit-btn");
 export const addOpenBtn = profile.querySelector(".profile__add");
 export const btnSubmit = document.querySelector('.popup__submit_add-card')
+export const avatarEditBtn = document.querySelector('.popup_avatar')
 
 
 export const apiConfig = {
-    address:`https://mesto.nomoreparties.co./v1/cohort-22`,
+    address:`https://mesto.nomoreparties.co/v1/cohort-22`,
     headers: {
         authorization: '9e52048b-0cd1-4d2d-8134-21ed3d4ebe58',
         'Content-Type': 'application/json'
-}
+    }
 }

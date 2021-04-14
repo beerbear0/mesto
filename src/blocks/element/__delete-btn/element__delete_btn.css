@@ -8,8 +8,13 @@
     right: 15px;
     top: 18px;
     background-image: url("../../../images/Trash.svg");
+    display: none;
 }
 .element__delete-btn:hover {
     opacity: .6;
     cursor: pointer;
+}
+
+.element__delete-btn_active {
+    display: block;
 }
