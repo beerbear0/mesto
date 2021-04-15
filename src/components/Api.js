@@ -48,12 +48,12 @@ export default class Api {
 
 
     // смена аватары
-    patchAvatar({avatar}) {
+    patchAvatar(input) {
         return fetch(`${this._baseUrl}/users/me/avatar`,  {
             method: 'PATCH',
             headers: this._headers,
             body: JSON.stringify({
-                avatar: avatar
+                avatar: input.avatarInput
             })
         })
             .then(this._handleResponse)
@@ -64,8 +64,8 @@ export default class Api {
             method: 'POST',
             headers: this._headers,
             body: JSON.stringify({
-                name: input.mestoInput,
-                link: input.urlInput
+                name: input.inputMesto,
+                link: input.inputUrl
             })
         })
             .then(this._handleResponse)
