@@ -1,26 +1,29 @@
 import Popup from "./Popup.js";
 
+export default class PopupWithConfirm extends Popup {
+    constructor (popupElement) {
+        super(popupElement);
+        this._submitButton = this._popupElement.querySelector('.popup__submit_delete-card')
+    }
 
-export  default class PopupWithConfirm extends Popup {
-    constructor(popupSelector) {
-        super(popupSelector);
-        this._popup = document.querySelector(popupSelector)
-        this._submitBtn = this._popup.querySelector('.popup__submit_delete-card');
-    }
-    setHandleSumbit(func) {
-        this._handleSubmit = func;
-    }
-    open() {
-        super.open();
-        this.loaderHandler('Да')
-    }
     setEventListeners() {
-        super.setEventListeners();
-        this._submitBtn.addEventListener('click', (evt) => {
-            evt.preventDefault()
+        this._submitButton.addEventListener('click', (evt) => {
+            evt.preventDefault();
             this.loaderHandler('Удаление...');
             this._handleSubmit();
-            this.close()
-        })
+            this.closePopup();
+        });
+        super.setEventListeners();
+    }
+
+
+    setHandleSubmit(func) {
+        this._handleSubmit = func;
+    }
+
+
+    openPopup() {
+        this.loaderHandler('Да');
+        super.openPopup();
     }
 }

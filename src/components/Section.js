@@ -1,19 +1,23 @@
 export default class Section {
-    constructor({ renderer }, containerSelector) {
-        this._container = document.querySelector(containerSelector);
+    constructor ({
+                     // items,
+                     renderer}, containerSelector) {
+        // this._items = items
         this._renderer = renderer;
-        // this._items = items;
+        this._containerSelector = document.querySelector(containerSelector);
     }
-    // отрисовка всех елементов
+
     renderItems(items) {
         items.forEach((item) => {
             this._renderer(item);
-        })
-    }
-    // доб. елемент в контейнер
-    addItem(element) {
-        this._container.prepend(element);
+        });
     }
 
+    addItemAppend(element) {
+        this._containerSelector.append(element);
+    }
 
+    addItemPrepend(element) {
+        this._containerSelector.prepend(element);
+    }
 }

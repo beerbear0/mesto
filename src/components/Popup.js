@@ -1,35 +1,43 @@
 export default class Popup {
-    constructor(popupSelector) {
-        this._popup = document.querySelector(popupSelector);
-        this._popupClickHandler = this._popupClickHandler.bind(this);
-        this._popupCloseBtn = this._popup.querySelector('.popup__close-btn');
-        this.close = this.close.bind(this);
+    constructor (popupElement) {
+        this._popupElement = popupElement;
+        this._handleEscClose = this._handleEscClose.bind(this)
+        this._handleOverlayClose= this._handleOverlayClose.bind(this)
+        this._submitButton = this._popupElement.querySelector('.popup__submit')
     }
-    // открываем попап
-    open() {
-        this._popup.classList.add('popup__opened');
-        this._popup.addEventListener('mousedown', this._popupClickHandler)
-        document.addEventListener('keydown', this._popupClickHandler);
+
+    openPopup() {
+        this._popupElement.classList.add('popup__opened');
+        document.addEventListener('keydown',this._handleEscClose);
+        document.addEventListener('click', this._handleOverlayClose);
     }
-    // закрываем попап
-    close() {
-        this._popup.classList.remove("popup__opened");
-        this._popup.removeEventListener('mousedown', this._popupClickHandler)
-        document.removeEventListener('keydown', this._popupClickHandler);
-    }
-    _popupClickHandler(evt) {
-        if (evt.key === 'Escape' || evt.target === evt.currentTarget || evt.target === this._popup) {
-            this.close()
-        }
-    }
-    loaderHandler(textMessage) {
-        this._popupCloseBtn.textContent = textMessage;
-    }
-    // добавляем слушатель
-    setEventListeners() {
-        this._popupCloseBtn.addEventListener('click', () => {
-            this.close();
-        })
+
+    closePopup() {
+        this._popupElement.classList.remove('popup__opened');
+        document.removeEventListener('keydown',this._handleEscClose);
+        document.removeEventListener('click',this._handleOverlayClose);
 
     }
+
+    _handleEscClose(evt) {
+        if (evt.key === 'Escape') {
+            this.closePopup()
+        }
+    }
+
+    _handleOverlayClose(evt) {
+        if (evt.target.classList.contains('popup')) {
+            this.closePopup();
+        }
+    };
+
+    setEventListeners() {
+        this._popupElement.querySelector('.popup__close-btn').addEventListener('click', () => this.closePopup())
+
+    }
+
+    loaderHandler(textMessage) {
+        this._submitButton.textContent = textMessage
+    }
+
 }

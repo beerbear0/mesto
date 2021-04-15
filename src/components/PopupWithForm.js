@@ -1,37 +1,37 @@
-import Popup from "./Popup.js";
-// класс формы
-export default class PopupWithForm extends Popup{
-    constructor(popupSelector, { handleFormSubmit }) {
-        super(popupSelector);
+import Popup from './Popup.js';
 
-        this._handleFormSubmit = handleFormSubmit;
-        this._form = this._popup.querySelector('.popup__form');
-        this._inputList = this._form.querySelectorAll('.popup__input');
+export default class PopupWithForm extends Popup {
+    constructor(popupElement, {submitForm}) {
+        super(popupElement);
+        this._submitForm = submitForm;
     }
-    // собираем данные всех полей формы
+
+//метод собирает все поля формы
     _getInputValues() {
-        this._inputValues = {};
-        this._inputList.forEach((input) => {
-            this._inputValues[input.name] = input.value;
-        })
-        return this._inputValues;
+        this._inputList = Array.from(this._popupElement.querySelectorAll('.popup__input')); // найти все инпуты в попапе и сделать из них массив
+        this._formValue = {}; // создать объект
+        this._inputList.forEach(item => { // в массиве инпутов для каждого элемента нужно
+            this._formValue[item.name] = item.value; // записать ключом объекта значение аттрибута "name"
+        });
+        return this._formValue
     }
-    // вешаем слушатель
+
     setEventListeners() {
-        super.setEventListeners();
-        this._form.addEventListener('submit', (evt) => {
+        this._popupElement.addEventListener('submit', (evt) => {
             evt.preventDefault();
-            this.loaderHandler('Сохранение...')
-            this._handleFormSubmit(this._getInputValues());
-        })
+            this.loaderHandler('Сохранение...');
+            this._submitForm(this._getInputValues())
+        });
+        super.setEventListeners();
     }
-    // закрываем форму
-    close() {
-        super.close();
-        this._form.reset();
+
+    closePopup() {
+        super.closePopup();
+        // this._popupElement.querySelector('.popup__container').reset();
     }
-    open() {
-        super.open();
-        this.loaderHandler('Сохранить')
+
+    openPopup() {
+        super.openPopup();
+        this.loaderHandler('Сохранить');
     }
 }
