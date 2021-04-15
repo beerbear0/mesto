@@ -9,7 +9,7 @@ export default class Api {
         if (res.ok) {
             return res.json();
         } else {
-            return Promise.reject(`Error! : ${res.status}`)
+            return Promise.reject(`Error! : ${res.status} 123`)
         }
 
     }
@@ -33,14 +33,14 @@ export default class Api {
     }
 
     //установка данных профиля
-    patchUserProfile(data) {
+    patchUserProfile(input) {
         return fetch(`${this._baseUrl}/users/me`,
             {
                 method: 'PATCH',
                 headers: this._headers,
                 body: JSON.stringify({
-                    name: data.name,
-                    about: data.about
+                    name: input.inputName,
+                    about: input.inputAbout
                 })
             })
             .then(this._handleResponse)
@@ -48,24 +48,24 @@ export default class Api {
 
 
     // смена аватары
-    patchAvatar(avatar) {
+    patchAvatar({avatar}) {
         return fetch(`${this._baseUrl}/users/me/avatar`,  {
             method: 'PATCH',
             headers: this._headers,
             body: JSON.stringify({
-                avatar: avatar.avatar
+                avatar: avatar
             })
         })
             .then(this._handleResponse)
     }
 
-    postUserCard(item) {
+    postUserCard(input) {
         return fetch(`${this._baseUrl}/cards`,  {
             method: 'POST',
             headers: this._headers,
             body: JSON.stringify({
-                name: item.title,
-                link: item.url
+                name: input.mestoInput,
+                link: input.urlInput
             })
         })
             .then(this._handleResponse)

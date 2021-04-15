@@ -9,15 +9,15 @@ export default class UserInfo {
     getUserInfo() {
         return {
             name: this._name.textContent,
-            info: this._job.textContent,
-            avatar: this._avatar.src
+            about: this._job.textContent,
+            avatar: this._avatar
         }
     }
     // принимаем новые данные пользователя и добавляем на страницу
-    setUserInfo(data) {
-        this._name.textContent = data.name;
-        this._job.textContent = data.info;
-        this._avatar.src = data.avatar;
+    setUserInfo({ name, about, avatar }) {
+        this._name.textContent = name ? name : this._name.textContent;
+        this._job.textContent = about ? about : this._job.textContent;
+        this._avatar.src = avatar ? avatar : this._avatar.src;
     }
 
     setUserAvatar(data) {

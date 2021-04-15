@@ -16,8 +16,8 @@ export default class Card {
     }
 
     _getTemplateLayout () {
-        const elementTemplate = document.querySelector(this._cardSelector).content.querySelector('.element').cloneNode(true); // ищем шаблон темплейта для клонирования карточек
-        return elementTemplate;
+         // ищем шаблон темплейта для клонирования карточек
+        return document.querySelector(this._cardSelector).content.querySelector('.element').cloneNode(true);
     }
 
     generateCard() {

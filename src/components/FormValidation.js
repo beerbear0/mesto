@@ -1,73 +1,63 @@
-export default class FormValidator {
-    constructor (validationConfig, form) {
-        this._form = form;
-        this._inputSelector = validationConfig.inputSelector;
-        this._submitButtonSelector = validationConfig.submitButtonSelector;
-        this._inactiveButtonClass = validationConfig.inactiveButtonClass;
-        this._inputErrorClass = validationConfig.inputErrorClass
-        this._errorClass = validationConfig.errorClass
-    }
-    //показ ошибок в спане
-    _showInputError(inputElement, errorMessage) {
-        const errorElement = this._form.querySelector(`#${inputElement.id}-error`);
-        inputElement.classList.add(this._inputErrorClass);
-        errorElement.textContent = errorMessage;
-        errorElement.classList.add(this._errorClass);
-    };
-    //удаление ошибок из спана
-    _hideInputError(inputElement) {
-        const errorElement = this._form.querySelector(`#${inputElement.id}-error`);
-        inputElement.classList.remove(this._inputErrorClass);
-        errorElement.classList.remove(this._errorClass);
-        errorElement.textContent = '';
-    };
+export default class FormValidation {
+    constructor(cardSelectors, formElement) {
+        this._cardSelectors = cardSelectors
+        this._formElement = formElement;
 
-    _checkInputValidity(inputElement) {
-        !inputElement.validity.valid ?
-            this._showInputError(inputElement, inputElement.validationMessage) :
-            this._hideInputError(inputElement);
-    };
-    //проверка валидности по каждому элементу
-    _hasInvalidInput(inputList) {
-        return inputList.some((inputElement) => !inputElement.validity.valid);
-    };
-    //смена состояния кнопки
-    _toggleButtonState(inputList, buttonElement) {
-        if (this._hasInvalidInput(inputList)) {
-            buttonElement.classList.add(this._inactiveButtonClass);
-            buttonElement.disabled = true;
-        } else {
-            buttonElement.classList.remove(this._inactiveButtonClass);
-            buttonElement.disabled = false;
-        }
-    };
-    _setEventListeners() {
-        const inputList = Array.from(this._form.querySelectorAll(this._inputSelector));  // Найдём все поля формы и сделаем из них массив
-        const buttonElement = this._form.querySelector(this._submitButtonSelector); // Найдём в текущей форме кнопку отправки
-        this._toggleButtonState(inputList, buttonElement);  // Вызовем toggleButtonState, чтобы не ждать ввода данных в поля
-        inputList.forEach((inputElement) => {
+    }
+    enableValidation() {
+        this._formElement.addEventListener('submit', (evt) => evt.preventDefault())
+
+        this._setEventListener()
+    }
+
+    _setEventListener() {
+        this._inputList = [...this._formElement.querySelectorAll(this._cardSelectors.inputSelector)];
+        this._buttonElement = this._formElement.querySelector(this._cardSelectors.submitButtonSelector);
+
+        this._toggleButtonState();
+
+        this._inputList.forEach((inputElement) => {
             inputElement.addEventListener('input', () => {
                 this._checkInputValidity(inputElement);
-                this._toggleButtonState(inputList, buttonElement);
-            });
-        });
+                this._toggleButtonState();
+            })
+        })
     };
-    // дописал метод очистки ошибок
-    clearValidationErrors() {
-        const inputList = Array.from(this._form.querySelectorAll(this._inputSelector)); // определяем инпуты
-        const buttonElement = this._form.querySelector(this._submitButtonSelector); // определяем кнопку
-        // для каждого инпута проводим проверку наличия класса ошибки
-        inputList.forEach(inputElement => {
-            //если находим ошибку то убираем ее
-            if (inputElement.classList.contains(this._inputErrorClass)) {
-                this._hideInputError(inputElement);
-            }
-        });
-        this._toggleButtonState(inputList, buttonElement);
+    _toggleButtonState() {
+        if (this._hasInvalidInput()) {
+            this._buttonElement.disabled = true;
+            this._buttonElement.classList.add(this._cardSelectors.inactiveButtonClass);
+        }
+        else {
+            this._buttonElement.classList.remove( this._cardSelectors.inactiveButtonClass);
+            this._buttonElement.disabled = false;
+        }
+    }
+    _hasInvalidInput() {
+        return  this._inputList.some((inputElement) => {
+            return !inputElement.validity.valid
+        })
+    }
+    _checkInputValidity(inputElement) {
+        this._inputElement = inputElement;
+        if (!this._inputElement.validity.valid) {
+            this._showInputError(this._inputElement, inputElement.validationMessage);
+        } else {
+            this._hideInputError(this._inputElement);
+        }
     };
+    _showInputError(inputElement, errorMessage) {
 
-
-    enableValidation(){
-        this._setEventListeners();}
+        const errorElement = this._formElement.querySelector(`#${inputElement.id}-error`);
+        this._inputElement.classList.add(this._cardSelectors.inputErrorClass);
+        errorElement.textContent = errorMessage;
+        errorElement.classList.add ( this._cardSelectors.errorClass);
+    }
+    _hideInputError (inputElement) {
+        const errorElement = this._formElement.querySelector(`#${inputElement.id}-error`);
+        this._inputElement.classList.remove(this._cardSelectors.inputErrorClass);
+        errorElement.classList.remove( this._cardSelectors.errorClass);
+        errorElement.textContent = "";
+    };
 
 }
