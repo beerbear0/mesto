@@ -18,6 +18,7 @@
 @import url(../blocks/profile/__add-btn/profile__add-btn.css);
 @import url(../blocks/profile/__avatar-btn/profile__avatar-btn.css);
 @import url(../blocks/profile/__avatar/_edit-icon/profile__avatar_edit-icon.css);
+@import url(../blocks/profile/__image/profile__image.css);
 
 @import url(../blocks/elements/elements.css);
 
@@ -57,3 +58,9 @@
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__title/footer__title.css);
 
+
+
+.element__like-counter{
+    width: 22px;
+    margin-right: 20px;
+}

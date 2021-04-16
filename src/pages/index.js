@@ -152,18 +152,22 @@ const avatarContainer = new FormValidator(validationConfig, checkAvatarContainer
 avatarContainer.enableValidation()
 
 
+
 editProfileButton.addEventListener('click', () => {
     const profile = userInfoProfile.getUserInfo();
     nameInput.value = profile.name;
     jobInput.value = profile.about;
     profileForm.openPopup();
+    profileContainer.clearValidateFormError()
 });
 
 addPlaceButton.addEventListener('click', () => {
     openPopupPlaceAdd.openPopup();
+    placeContainer.clearValidateFormError()
 })
 
 avatarEditButton.addEventListener('click', () => {
-    openPopupAvatar.openPopup()
+    openPopupAvatar.openPopup();
+    avatarContainer.clearValidateFormError();
 });
 

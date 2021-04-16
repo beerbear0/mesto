@@ -60,5 +60,16 @@ export  class FormValidator {
         errorElement.classList.remove( this._cardSelectors.errorClass);
         errorElement.textContent = "";
     };
+   clearValidateFormError() {
+       this._inputList = [...this._formElement.querySelectorAll(this._cardSelectors.inputSelector)];
+       const buttonElement = this._formElement.querySelector(this._cardSelectors.submitButtonSelector);
+       const inputErrorClass = this._formElement.querySelector(this._cardSelectors.inputErrorClass)
 
+       this._inputList.forEach(inputElement => {
+           if(inputElement.classList.contains(inputErrorClass)) {
+               this._hideInputError(inputElement)
+           }
+       })
+       this._toggleButtonState(this._inputList, buttonElement);
+   }
 }
