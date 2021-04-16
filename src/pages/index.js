@@ -152,7 +152,6 @@ const avatarContainer = new FormValidator(validationConfig, checkAvatarContainer
 avatarContainer.enableValidation()
 
 
-
 editProfileButton.addEventListener('click', () => {
     const profile = userInfoProfile.getUserInfo();
     nameInput.value = profile.name;

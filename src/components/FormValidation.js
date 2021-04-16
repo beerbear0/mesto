@@ -63,10 +63,10 @@ export  class FormValidator {
    clearValidateFormError() {
        this._inputList = [...this._formElement.querySelectorAll(this._cardSelectors.inputSelector)];
        const buttonElement = this._formElement.querySelector(this._cardSelectors.submitButtonSelector);
-       const inputErrorClass = this._formElement.querySelector(this._cardSelectors.inputErrorClass)
+       const inputErrorClass = this._formElement.querySelector('.popup__input_disabled')
 
        this._inputList.forEach(inputElement => {
-           if(inputElement.classList.contains(inputErrorClass)) {
+           if(inputElement.classList.contains('popup__input_disabled')) {
                this._hideInputError(inputElement)
            }
        })
