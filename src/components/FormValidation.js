@@ -1,36 +1,38 @@
-export default class FormValidation {
+export  class FormValidator {
     constructor(cardSelectors, formElement) {
         this._cardSelectors = cardSelectors
         this._formElement = formElement;
 
     }
     enableValidation() {
-        this._formElement.addEventListener('submit', (evt) => evt.preventDefault())
-
-        this._setEventListener()
+        this._formElement.addEventListener('submit', (evt) => {
+            evt.preventDefault();
+            // this._setEventListener();
+        })
+        this._setEventListener();
     }
 
     _setEventListener() {
         this._inputList = [...this._formElement.querySelectorAll(this._cardSelectors.inputSelector)];
-        this._buttonElement = this._formElement.querySelector(this._cardSelectors.submitButtonSelector);
+        const buttonElement = this._formElement.querySelector(this._cardSelectors.submitButtonSelector);
 
-        this._toggleButtonState();
+        this._toggleButtonState(this._inputList, buttonElement);
 
         this._inputList.forEach((inputElement) => {
             inputElement.addEventListener('input', () => {
                 this._checkInputValidity(inputElement);
-                this._toggleButtonState();
+                this._toggleButtonState(this._inputList, buttonElement);
             })
         })
     };
-    _toggleButtonState() {
+    _toggleButtonState(inputList, buttonElement) {
         if (this._hasInvalidInput()) {
-            this._buttonElement.disabled = true;
-            this._buttonElement.classList.add(this._cardSelectors.inactiveButtonClass);
+            buttonElement.disabled = true;
+            buttonElement.classList.add(this._cardSelectors.inactiveButtonClass);
         }
         else {
-            this._buttonElement.classList.remove( this._cardSelectors.inactiveButtonClass);
-            this._buttonElement.disabled = false;
+            buttonElement.classList.remove( this._cardSelectors.inactiveButtonClass);
+            buttonElement.disabled = false;
         }
     }
     _hasInvalidInput() {
@@ -47,7 +49,6 @@ export default class FormValidation {
         }
     };
     _showInputError(inputElement, errorMessage) {
-
         const errorElement = this._formElement.querySelector(`#${inputElement.id}-error`);
         this._inputElement.classList.add(this._cardSelectors.inputErrorClass);
         errorElement.textContent = errorMessage;

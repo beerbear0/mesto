@@ -19,26 +19,15 @@ import {
     apiConfig,
 } from '../utils/constants.js';
 
-import FormValidation from "../components/FormValidation.js";
+import {FormValidator} from "../components/FormValidation.js";
 import Section from "../components/Section.js";
-import Popup from "../components/Popup.js";
 import PopupWithImage from "../components/PopupWithImage.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 import PopupWithConfirm from "../components/PopupWithConfirm.js"
 import UserInfo from "../components/UserInfo.js";
 import Api from "../components/Api.js";
 
-let myID = 0
-// const profileContainer= new FormValidator(validationConfig, checkProfileContainer);
-// profileContainer.enableValidation();
-// const placeContainer = new FormValidator(validationConfig, checkPlaceContainer);
-// placeContainer.enableValidation();
-// const avatarContainer = new FormValidator(validationConfig, checkAvatarContainer);
-// avatarContainer.enableValidation()
-// Array.from(document.querySelectorAll(".popup__container")).forEach((formElement) => {
-//     const formValidation = new FormValidation(validationConfig, formElement);
-//     formValidation.enableValidation()
-// })
+let myID = 0;
 
 const userInfoProfile = new UserInfo('.profile__name', '.profile__infoname', '.profile__avatar');// userprofile unit class
 const api = new Api(apiConfig);
@@ -155,20 +144,26 @@ profileForm.setEventListeners();
 const openPopupConfirm = new PopupWithConfirm(popupConfirm)
 openPopupConfirm.setEventListeners();
 
+const profileContainer= new FormValidator(validationConfig, checkProfileContainer);
+profileContainer.enableValidation();
+const placeContainer = new FormValidator(validationConfig, checkPlaceContainer);
+placeContainer.enableValidation();
+const avatarContainer = new FormValidator(validationConfig, checkAvatarContainer);
+avatarContainer.enableValidation()
+
+
 editProfileButton.addEventListener('click', () => {
     const profile = userInfoProfile.getUserInfo();
     nameInput.value = profile.name;
     jobInput.value = profile.about;
-    // profileContainer.clearValidationErrors()
     profileForm.openPopup();
 });
 
 addPlaceButton.addEventListener('click', () => {
-    // placeContainer.clearValidationErrors()
     openPopupPlaceAdd.openPopup();
 })
 
 avatarEditButton.addEventListener('click', () => {
-    // avatarContainer.clearValidationErrors()
     openPopupAvatar.openPopup()
 });
+

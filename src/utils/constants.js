@@ -1,11 +1,11 @@
 export const validationConfig = {
-    formSelector: '.popup__container',
+    formSelector: '.popup__form',
     inputSelector: '.popup__input',
     submitButtonSelector: '.popup__submit',
     inactiveButtonClass: 'popup__submit_disabled',
-    inputErrorClass: 'popup__input_type_error',
-    errorClass: 'popup__error_type_active'
-};
+    inputErrorClass: 'popup__input_disabled',
+    errorClass: 'popup__error_visible'
+}
 
 
 // для валидации
