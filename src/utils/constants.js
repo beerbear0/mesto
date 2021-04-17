@@ -18,7 +18,9 @@ export const popupProfile = document.querySelector('.popup_edit-profile');// и�
 export const popupPlace = document.querySelector('.popup_add-card'); // ищем попап новых мест
 export const popupImage = document.querySelector('.popup_type-image'); //ищем попап открытия изображений
 export const popupAvatar = document.querySelector('.popup_avatar') // попап аватарки
-export const popupConfirm = document.querySelector('.popup_delete-card') // попап подтверждения удаления карты
+export const popupConfirm = document.querySelector('.popup_delete-card');// попап подтверждения удаления карты
+
+export const ElementsContainer = document.querySelector('.elements');
 
 //inputs section
 export const nameInput = document.querySelector('.popup__input_name-value'); // ищем инпут имени

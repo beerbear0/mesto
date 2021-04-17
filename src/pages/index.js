@@ -17,6 +17,7 @@ import {
     addPlaceButton,
     avatarEditButton,
     apiConfig,
+    ElementsContainer
 } from '../utils/constants.js';
 
 import {FormValidator} from "../components/FormValidation.js";
@@ -27,20 +28,20 @@ import PopupWithConfirm from "../components/PopupWithConfirm.js"
 import UserInfo from "../components/UserInfo.js";
 import Api from "../components/Api.js";
 
-let myID = 0;
+ // let myID = 0;
 
 const userInfoProfile = new UserInfo('.profile__name', '.profile__infoname', '.profile__avatar');// userprofile unit class
 const api = new Api(apiConfig);
 
 
-
+let myID = 0;
 
 Promise.all([api.getUserInfo(), api.getInitialCards()])
     .then(([userData, res]) => {
         userInfoProfile.setUserInfo(userData);
-        starterCards.renderItems(res);
         myID = userData._id;
-        // openPopupPlaceAdd.setEventListeners();
+        starterCards.renderItems(res);
+
     })
     .catch(err => console.log(err))
 
@@ -88,21 +89,21 @@ function createCard(item) {
         },
 
     })
-    starterCards.addItemPrepend(card.generateCard())
-
+    // starterCards.addItemPrepend(card.generateCard())
+    return card.generateCard();
 }
 
 const starterCards = new Section({
     renderer: (item) => {
-        createCard(item)
+        starterCards.addItemPrepend(createCard(item))
     }
-}, '.elements');
+}, ElementsContainer);
 
 
 const openPopupPlaceAdd = new PopupWithForm(popupPlace, (item) => {
         api.postUserCard(item)
             .then((item) => {
-                createCard(item)
+                starterCards.addItemPrepend(createCard(item))
                 openPopupPlaceAdd.closePopup()
             })
             .catch((err) => {

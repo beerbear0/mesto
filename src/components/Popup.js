@@ -37,7 +37,9 @@ export default class Popup {
     }
 
     loaderHandler(textMessage) {
-        this._submitButton.textContent = textMessage
+        if (this._submitButton) {
+            this._submitButton.textContent = textMessage;
+        }
     }
 
 }
