@@ -32,6 +32,10 @@ export const addPlaceButton = document.querySelector('.profile__add'); // ище
 export const avatarEditButton = document.querySelector('.profile__avatar-btn')
 
 
+export const name = document.querySelector('.profile__name');
+export const job = document.querySelector('.profile__infoname');
+export const avatar = document.querySelector('.profile__avatar');
+
 export const apiConfig = {
     baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-22',
     headers: {

@@ -24,14 +24,9 @@ export default class Card {
     generateCard() {
         this._card = this._getTemplateLayout(); // клонируем шаблон
 
-
-        // console.log(this._likes.find(like => like._id === this._myID))
-        console.log(this._myID)
-
         const popupImage = this._card.querySelector('.element__image') // находим имг на карте
         const popupImageText = this._card.querySelector('.element__title') // находим название карты
         const likeCounter = this._card.querySelector('.element__handle-like')
-
 
         popupImage.src = this._link; // находим изображение и присваиваем ссылку на параметр
         popupImage.alt = this._name; // устанавливаем аттрибут альт для картинки с названием нейма
@@ -39,7 +34,6 @@ export default class Card {
         likeCounter.textContent = `${this._likes.length}`; //вывести длину массива как значение количества лайков
 
         if (this._likes.find((like) => like._id === this._myID)) {
-             console.log('123456')
             this._card.querySelector('.element__like-btn').classList.add('element__like_active');
         }
 
@@ -67,7 +61,6 @@ export default class Card {
             // this.toggleLike()
         } else {
             this._handleLikeSet()
-            // this.toggleLike()
         }
     }
 

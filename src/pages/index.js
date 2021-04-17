@@ -17,7 +17,10 @@ import {
     addPlaceButton,
     avatarEditButton,
     apiConfig,
-    ElementsContainer
+    ElementsContainer,
+    name,
+    job,
+    avatar
 } from '../utils/constants.js';
 
 import {FormValidator} from "../components/FormValidation.js";
@@ -28,9 +31,9 @@ import PopupWithConfirm from "../components/PopupWithConfirm.js"
 import UserInfo from "../components/UserInfo.js";
 import Api from "../components/Api.js";
 
- // let myID = 0;
 
-const userInfoProfile = new UserInfo('.profile__name', '.profile__infoname', '.profile__avatar');// userprofile unit class
+
+const userInfoProfile = new UserInfo(name, job, avatar);// userprofile unit class
 const api = new Api(apiConfig);
 
 
@@ -89,7 +92,6 @@ function createCard(item) {
         },
 
     })
-    // starterCards.addItemPrepend(card.generateCard())
     return card.generateCard();
 }
 

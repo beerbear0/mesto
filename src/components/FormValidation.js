@@ -61,11 +61,7 @@ export  class FormValidator {
         errorElement.textContent = "";
     };
    clearValidateFormError() {
-       // this._inputList = [...this._formElement.querySelectorAll(this._cardSelectors.inputSelector)];
-       // const buttonElement = this._formElement.querySelector(this._cardSelectors.submitButtonSelector);
-
        this._inputList.forEach(inputElement => {
-           // if(inputElement.classList.contains('popup__input_disabled')) {
            this._inputElement = inputElement;
                this._hideInputError(inputElement)
            // }
