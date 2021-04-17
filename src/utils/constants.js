@@ -20,8 +20,6 @@ export const popupImage = document.querySelector('.popup_type-image'); //ище�
 export const popupAvatar = document.querySelector('.popup_avatar') // попап аватарки
 export const popupConfirm = document.querySelector('.popup_delete-card');// попап подтверждения удаления карты
 
-export const ElementsContainer = document.querySelector('.elements');
-
 //inputs section
 export const nameInput = document.querySelector('.popup__input_name-value'); // ищем инпут имени
 export const jobInput = document.querySelector('.popup__input_infoname-value'); //ищем инпут профессии
@@ -30,7 +28,6 @@ export const jobInput = document.querySelector('.popup__input_infoname-value'); 
 export const editProfileButton = document.querySelector('.profile__edit-btn'); // ищем кнопку вызова попапа редактирования профиля
 export const addPlaceButton = document.querySelector('.profile__add'); // ищем кнопку вызова попапа добавления нового места
 export const avatarEditButton = document.querySelector('.profile__avatar-btn')
-
 
 export const name = document.querySelector('.profile__name');
 export const job = document.querySelector('.profile__infoname');

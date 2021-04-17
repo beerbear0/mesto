@@ -17,7 +17,6 @@ import {
     addPlaceButton,
     avatarEditButton,
     apiConfig,
-    ElementsContainer,
     name,
     job,
     avatar
@@ -99,7 +98,7 @@ const starterCards = new Section({
     renderer: (item) => {
         starterCards.addItemPrepend(createCard(item))
     }
-}, ElementsContainer);
+}, '.elements');
 
 
 const openPopupPlaceAdd = new PopupWithForm(popupPlace, (item) => {

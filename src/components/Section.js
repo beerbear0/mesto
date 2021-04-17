@@ -4,7 +4,7 @@ export default class Section {
                      renderer}, containerSelector) {
         // this._items = items
         this._renderer = renderer;
-        this._containerSelector = containerSelector;
+        this._container = document.querySelector(containerSelector);
     }
 
     renderItems(items) {
@@ -14,6 +14,6 @@ export default class Section {
     }
 
     addItemPrepend(element) {
-        this._containerSelector.prepend(element);
+        this._container.prepend(element);
     }
 }
